@@ -187,23 +187,37 @@ $(document).ready(function() {
     // ──────────────────── //
 
     // Carousel
-    $("#testimonials .navigation").click(function () {
+    $("#testimonios .navigation").click(function () {
 
-        var pos   = $("#testimonials .testimonial-wrapper.active").attr("data-position");
-        var total = $("#testimonials .testimonial-wrapper").length;
+        var total    = $("#testimonios .testimonio").length;
+        var posicion = $("#testimonios .testimonio.activo").attr("data-position");
 
-        $("#testimonials .testimonial-wrapper.active").css("opacity", "0");
-        setTimeout(function () { $("#testimonials .testimonial-wrapper.active").removeClass("active") }, 1000);
+        // Ajustamos el índice del nuevo testimonio
+        if ( $(this).hasClass("navigation-left" ) && ( posicion == 1 ) ) {
+            posicion = total;   
+        }
+        else if ( $(this).hasClass("navigation-right") && ( posicion == total ) ) {
+            posicion = 1;
+        }
+        else if ( $(this).hasClass("navigation-right") ) {
+            posicion++;
+        }
+        else {
+            posicion--;
+        }
 
-        if ( $(this).hasClass("navigation-left") && ( pos == 1 ) )
-            setTimeout(function () { $("#testimonials .testimonial-wrapper[data-position='" + total + "']").addClass("active"); }, 1000);
-        else if ( $(this).hasClass("navigation-right") && ( pos == total ) )
-            setTimeout(function () { $("#testimonials .testimonial-wrapper[data-position='1']").addClass("active"); }, 1000);
-        else if ( $(this).hasClass("navigation-right") )
-            setTimeout(function () { $("#testimonials .testimonial-wrapper[data-position='" + (++pos) + "']").addClass("active"); }, 1000);
-        else
-            setTimeout(function () { $("#testimonials .testimonial-wrapper[data-position='" + (--pos) + "']").addClass("active"); }, 1000);
+        // Ocultamos el testimonio anterior
+        $("#testimonios .testimonio.activo").css("opacity", "0");
 
-        setTimeout(function () { $("#testimonials .testimonial-wrapper.active").css("opacity", "1"); }, 1500);
+        // Activamos el nuevo testimonio
+        setTimeout(function () {
+            $("#testimonios .testimonio.activo").removeClass("activo");
+            $("#testimonios .testimonio[data-position='" + posicion + "']").addClass("activo");
+        }, 1000);
+
+        // Mostramos el nuevo testimonio
+        setTimeout(function () {
+            $("#testimonios .testimonio.activo").css("opacity", "1");
+        }, 1500);
     })
 });

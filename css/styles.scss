@@ -28,8 +28,14 @@ body {
 }
 
 section {
-    padding: 150px 0;
+    padding: 100px 0;
     position: relative;
+}
+
+@media only screen and (min-width: $mobile) {
+    section {
+        padding: 150px 0;
+    }
 }
 
 p, li {
@@ -84,7 +90,7 @@ hr {
     border: none;
 }
 
-/* Fonts */
+// Fonts
 
 @font-face {
   font-family: Mermaid;
@@ -123,7 +129,7 @@ hr {
     border: 2px solid $dorado;
     border-radius: 2px;
     position: fixed;
-    bottom: 25px;
+    bottom: 75px;
     right: 25px;
     z-index: 75;
     width: 50px;
@@ -144,6 +150,12 @@ hr {
     &:active {
         color: white !important;
         background: $dorado;
+    }
+}
+
+@media only screen and (min-width: $mobile) {
+    .top-button {
+        bottom: 25px;
     }
 }
 
@@ -784,160 +796,241 @@ header .rrss:hover i {
     padding-bottom: 25px;
 }
 
-/* ──────────────────── */
-/*     TESTIMONIALS     */
-/* ──────────────────── */
+// ─────────────────── //
+//     TESTIMONIOS     //
+// ─────────────────── //
 
-/* General */
-
-#testimonials {
+#testimonios {
     display: flex;
     align-items: center;
     justify-content: center;
     background: url(../img/bg/testimonials.jpg) fixed center no-repeat;
     background-size: cover;
-    position: relative;
-    height: 500px;
-    cursor: pointer;
+    padding: 100px 10px;
+
+    // Testimonios
+
+    .testimonios {
+        border-top: 1px solid rgba(255,255,255,.5);
+        border-left: 1px solid rgba(255,255,255,.5);
+        border-right: 1px solid rgba(255,255,255,.5);
+        padding: 2px;
+        position: relative;
+        max-width: 1100px;
+
+        & > div {
+            border-top: 1px solid rgba(255,255,255,.15);
+            border-left: 1px solid rgba(255,255,255,.15);
+            border-right: 1px solid rgba(255,255,255,.15);
+        }
+
+        .testimonio {
+            display: none;
+            box-sizing: content-box;
+            color: rgba(255,255,255,.9);
+            font-size: 15px;
+            font-weight: normal;
+            font-family: 'Lato', sans-serif;
+            line-height: 35px;
+            padding: 50px 35px;
+            position: relative;
+            opacity: 0;
+            transition: 1s;
+            
+            .author {
+                color: $dorado;
+                font-size: 12px;
+                font-weight: 300;
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                position: absolute;
+                left: 50%;
+                bottom: -23px;
+                width: 100%;
+                transform: translateX(-50%) rotateX(15deg);
+            }
+
+            .quotes {
+                color: white;
+                font-size: 75px;
+                position: absolute;
+                left: 5px;
+                top: 23px;
+                opacity: .15;
+
+                &.fa-quote-right { display: none }
+            }
+
+            &:nth-child(1) {
+                opacity: 1;
+            }
+
+            &.activo {
+                display: block;
+            }
+        }
+
+        .border {
+            display: inline-block;
+            background: rgba(255,255,255,.25);
+            position: absolute;
+            bottom: -1px;
+            width: 50px;
+            height: 1px;
+
+            &.border-left  { background: linear-gradient(to right, rgba(255,255,255,.25) 75%, transparent); left : -1px }
+            &.border-right { background: linear-gradient(to left , rgba(255,255,255,.25) 75%, transparent); right: -1px }
+        }
+
+        &::after,
+        &::before {
+            content: "";
+            background: rgba(255,255,255,.15);
+            position: absolute;
+            bottom: 2px;
+            width: 46px;
+            height: 1px;
+        }
+
+        &::after  { background: linear-gradient(to left , rgba(255,255,255,.15) 75%, transparent); right : 3px }
+        &::before { background: linear-gradient(to right, rgba(255,255,255,.15) 75%, transparent); left  : 3px }
+    }
+
+    // Navegación
+
+    .navigation {
+        font-size: 50px;
+        position: absolute;
+        bottom: 25px;
+        width: 50px;
+        height: auto;
+        cursor: pointer;
+    
+        &.navigation-left  { left : 25% }
+        &.navigation-right { right: 25% }
+        
+        .flecha {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,.15);
+            width: 50px;
+            height: 100%;
+            transition: color .5s;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+
+    // Overlay
+
+    .overlay {
+        background: rgba(45,50,65,.75);
+    
+        &::after {
+            content: '';
+            background: rgba(45,50,65,.75) url(../img/ruido.png) repeat center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            opacity: .5;
+        }
+    }
 }
 
-#testimonials .overlay {
-    background: rgba(45,50,65,.75);
+// Mobile First
+
+@media only screen and (min-width: $mobile) {
+    #testimonios {
+        padding: 100px 50px;
+
+        // Testimonios
+
+        .testimonios {
+
+            .testimonio {
+                font-size: 20px;
+                text-align: center;
+                line-height: 40px;
+                padding: 50px;
+
+                .author {
+                    font-size: 15px;
+                    letter-spacing: 5px;
+                    bottom: -21px;
+                }
+
+                .quotes {
+                    font-size: 25px;
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    bottom: 10px;
+
+                    &.fa-quote-right { display: initial  }
+                }
+            }
+
+            .border, &::after, &::before { width: 22% }
+        }
+
+        // Navegación
+
+        &:hover .navigation .flecha {
+            color: rgba(255,255,255,.15);
+            transition: .5s;
+        }
+
+        .navigation {
+            top: 50%;
+            bottom: auto;
+            height: 100%;
+            transform: translateY(-50%);
+
+            &.navigation-left  { left : 0 }
+            &.navigation-right { right: 0 }
+
+            .flecha {
+                color: transparent;
+            }
+        }
+    }
 }
 
-#testimonials .overlay::after {
-    content: '';
-    display: block;
-    background: rgba(45,50,65,.75) url(../img/ruido.png) repeat center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    opacity: .5;
+@media only screen and (min-width: $tablet) {
+    #testimonios .testimonios {
+
+        .testimonio {
+            font-size: 30px;
+            line-height: 50px;
+            padding: 50px 75px;
+
+            .author {
+                font-size: 18px;
+                letter-spacing: 10px;
+            }
+        }
+        .border, &::after, &::before { width: 28% }
+    }
 }
 
-/* Testimonial */
-
-#testimonials .testimonial-wrapper {
-    display: none;
-    border-top: 1px solid rgba(255,255,255,.5);
-    border-left: 1px solid rgba(255,255,255,.5);
-    border-right: 1px solid rgba(255,255,255,.5);
-    padding: 2px;
-    position: relative;
-    opacity: 0;
-    transition: 1s;
+@media only screen and (min-width: $laptop) {
+    #testimonios .testimonios {
+        .testimonio { padding: 50px 150px }
+        .border, &::after, &::before { width: 30% }
+    }
 }
 
-#testimonials .testimonial-wrapper.active {
-    display: block;
-}
-
-#testimonials .wow .testimonial-wrapper:first-child {
-    opacity: 1;
-}
-
-#testimonials .testimonial-wrapper .border {
-    display: inline-block;
-    background: rgba(255,255,255,.25);
-    position: relative;
-    bottom: 6px;
-    width: 373px;
-    height: 1px;
-    position: absolute;
-    bottom: 0;
-}
-
-#testimonials .testimonial-wrapper .border.border-left  { background: linear-gradient(to right, rgba(255,255,255,.25) 75%, transparent); left : 0 }
-#testimonials .testimonial-wrapper .border.border-right { background: linear-gradient(to left , rgba(255,255,255,.25) 75%, transparent); right: 0 }
-
-#testimonials .testimonial-wrapper .testimonial {
-    display: block;
-    box-sizing: content-box;
-    color: rgba(255,255,255,.9);
-    font-size: 30px;
-    font-weight: normal;
-    font-family: 'Lato', sans-serif;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,.15);
-    border-left: 1px solid rgba(255,255,255,.15);
-    border-right: 1px solid rgba(255,255,255,.15);
-    line-height: 50px;
-    padding: 50px 150px;
-    margin: 0;
-    position: relative;
-    z-index: 25;
-    width: 800px;
-}
-
-#testimonials .testimonial-wrapper .testimonial .quotes {
-    color: white;
-    font-size: 25px;
-    position: relative;
-    bottom: 10px;
-    opacity: .15;
-}
-
-#testimonials .testimonial-wrapper .author {
-    color: $dorado;
-    font-size: 18px;
-    font-weight: 300;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    position: absolute;
-    left: 0;
-    bottom: -21px;
-    width: 100%;
-    transform: rotateX(15deg);
-}
-
-#testimonials .testimonial-wrapper .author::after,
-#testimonials .testimonial-wrapper .author::before {
-    content: '';
-    display: inline-block;
-    background: rgba(255,255,255,.15);
-    position: relative;
-    bottom: 8px;
-    width: 370px;
-    height: 1px;
-}
-
-#testimonials .testimonial-wrapper .author::after  { background: linear-gradient(to left , rgba(255,255,255,.15) 75%, transparent); margin-left : 25px }
-#testimonials .testimonial-wrapper .author::before { background: linear-gradient(to right, rgba(255,255,255,.15) 75%, transparent); margin-right: 25px }
-
-/* Navigation */
-
-#testimonials .navigation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    position: absolute;
-    top: 50%;
-    width: 100px;
-    height: 75px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-#testimonials .navigation.navigation-left  { left : 0 }
-#testimonials .navigation.navigation-right { right: 0 }
-
-#testimonials .navigation .arrow {
-    color: transparent;
-    transition: color .5s ease-in;
-}
-
-#testimonials:hover .navigation .arrow {
-    color: rgba(255,255,255,.15);
-    transition: .5s;
-}
-
-#testimonials .navigation:hover .arrow {
-    color: white;
+@media only screen and (min-width: $desktop) {
+    #testimonios .testimonios {
+        .border, &::after, &::before { width: 35% }
+    }
 }
 
 // ──────────────── //
@@ -1150,7 +1243,8 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 25px 0;
+        flex-wrap: wrap;
+        padding: 15px 0;
     
         a {
             display: inline-block;
@@ -1160,6 +1254,7 @@ footer {
             text-transform: uppercase;
             text-decoration: none;
             letter-spacing: 3px;
+            line-height: 30px;
             margin: 0 15px;
             white-space: nowrap;
             width: 250px;
