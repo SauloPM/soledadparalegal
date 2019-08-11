@@ -193,18 +193,10 @@ $(document).ready(function() {
         var posicion = $("#testimonios .testimonio.activo").attr("data-position");
 
         // Ajustamos el índice del nuevo testimonio
-        if ( $(this).hasClass("navigation-left" ) && ( posicion == 1 ) ) {
-            posicion = total;   
-        }
-        else if ( $(this).hasClass("navigation-right") && ( posicion == total ) ) {
-            posicion = 1;
-        }
-        else if ( $(this).hasClass("navigation-right") ) {
-            posicion++;
-        }
-        else {
-            posicion--;
-        }
+        if ( $(this).hasClass("navigation-left") ) 
+            posicion = posicion == 1 ? total : parseInt(posicion) - 1;
+        else
+            posicion = posicion == total ? 1 : parseInt(posicion) + 1;
 
         // Ocultamos el testimonio anterior
         $("#testimonios .testimonio.activo").css("opacity", "0");
