@@ -33,7 +33,7 @@ section {
 p, li {
     font-size: 18px;
     line-height: 45px;
-    margin-bottom: 0;
+    margin: 0;
 
     strong {
         font-weight: normal;
@@ -157,7 +157,7 @@ hr {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: 25;
     width: 100%;
 }
 
@@ -462,6 +462,7 @@ header .rrss:hover i {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 100px;
     
     .tarjeta {
@@ -469,6 +470,7 @@ header .rrss:hover i {
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
+        flex-shrink: 0;
         background-color: $gris-claro;
         border-top: 6px solid $gris;
         padding: 55px 30px;
@@ -524,13 +526,7 @@ header .rrss:hover i {
     }
 }
 
-/* Mobile First */
-
-@media only screen and (min-width: $mobile) and (max-width: 767px) {
-    #bienvenida .tarjetas {
-        padding: 0 20%;
-    }
-}
+// Mobile First
 
 @media only screen and (min-width: $tablet) {
     #bienvenida {
@@ -552,11 +548,9 @@ header .rrss:hover i {
     }
 }
 
-/* ─────────────── */
-/*     CALLOUT     */
-/* ─────────────── */
-
-/* General */
+// ─────────────── //
+//     CALLOUT     //
+// ─────────────── //
 
 #callout {
     display: flex;
@@ -564,52 +558,55 @@ header .rrss:hover i {
     justify-content: center;
     background: white url(../img/bg/callout.jpg) fixed center no-repeat;
     background-size: cover;
+    padding: 100px 15%;
     position: relative;
-    height: 500px;
+
+    .texto {
+        color: white;
+        font-size: 25px;
+        font-weight: 900;
+        font-family: 'Playfair Display', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        line-height: 40px;
+        margin: 0;
+        position: relative;
+        z-index: 50;
+
+        span {
+            color: $dorado;
+        }
+    }
+
+    .overlay {
+        background: rgba(45,50,65,.75);
+
+        &::after {
+            content: '';
+            display: block;
+            background: rgba(45,50,65,.75) url(../img/ruido.png) repeat center;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            opacity: .5;
+        }
+    }
 }
 
-#callout .overlay {
-    background: rgba(45,50,65,.75);
-}
-
-#callout .overlay::after {
-    content: '';
-    display: block;
-    background: rgba(45,50,65,.75) url(../img/ruido.png) repeat center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    opacity: .5;
-}
-
-/* Texto */
-
-#callout p {
-    color: white;
-    font-size: 25px;
-    font-weight: 900;
-    font-family: 'Playfair Display', sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    line-height: 40px;
-    margin: 0;
-    padding: 0 15%;
-    position: relative;
-    z-index: 25;
-}
-
-#callout p span {
-    color: $dorado;
-}
+// Mobile First
 
 @media only screen and (min-width: $tablet) {
-    #callout p {
-        font-size: 45px;
-        line-height: 65px;
+    #callout {
+        padding: 175px 15%;
+
+        .texto {
+            font-size: 45px;
+            text-align: center;
+            line-height: 65px;
+        }
     }
 }
 
