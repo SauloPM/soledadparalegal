@@ -5,11 +5,57 @@ $(document).ready(function() {
         mobile: false
     }).init();
 
-    // Spinner
+    // Smooth Scrolling Links
+    $(".smooth-scrolling").click(function (event) {
+        event.preventDefault();
+        var target = $(this).attr("href");
+        $("html, body").stop().animate({ scrollTop: $(target).offset().top }, 1500, 'easeInOutExpo');
+    });
+
+    // ─────────────── //
+    //     SPINNER     //
+    // ─────────────── //
+
     hideSpinner();
 
-    // Top Button Revealing
+    // Spinner hidding
+    function hideSpinner () {
+        $("#preloader .spinner").fadeOut(500, function () {
+            $("#preloader").delay(500).fadeOut(500);
+            setTimeout(function () { $("body").css("overflow", "visible"); }, 500);
+        });
+    }
+
+    // ────────────────── //
+    //     TOP BUTTON     //
+    // ────────────────── //
+
     showTopButton();
+
+    $(document).scroll(function() {
+        showTopButton();
+    });
+
+    // Top button revealing
+    function showTopButton () {
+        if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150)
+            $(".top-button").css("opacity", "1");
+        else
+            $(".top-button").css("opacity", "0");
+    }
+
+    // ──────────────── //
+    //     PARALLAX     //
+    // ──────────────── //
+
+    $(document).scroll(function() {
+        parallax();
+    });
+
+    // Function in charge of header's background image slowdown on scroll (a half of its normal speed)
+    function parallax() {
+        $("header").css("background-position", "center " + ($(document).scrollTop() * .5) + "px");
+    }
 
     // ────────────── //
     //     NAVBAR     //
@@ -17,6 +63,65 @@ $(document).ready(function() {
 
     resizeNavbar();
     highlightNavbar();
+
+    $(document).scroll(function() {
+        resizeNavbar();
+        highlightNavbar();
+    });
+
+    // Function in charge of resizing the navigation bar according to the scroll position
+    function resizeNavbar() {
+        if ($( document ).width() > 768) {
+            if ($(this).scrollTop() > 250)
+                $("nav").css({"padding" : "15px 0", "background-color" : "#2D3241"});
+            else
+                $("nav").css({"padding" : "40px 0", "background-color" : "rgba(45,50,65,.75)"});
+        }
+        else
+            $("nav").css("padding", "20px 0");
+    }
+
+    // Function in charge of highlighting the current navigation bar item
+    function highlightNavbar() {
+        
+        // Header
+        if ($(this).scrollTop() < $("#bienvenida").position().top) {
+            $("nav .item i").css("color", "white");
+            $("nav .item a").css("color", "white");
+        }
+
+        // Bienvenida
+        if ($(this).scrollTop() >= $("#bienvenida").position().top) {
+            $("nav .item i").css("color", "white");
+            $("nav .item:nth-child(1) i").css("color", "#C18F59");
+            $("nav .item a").css("color", "white");
+            $("nav .item:nth-child(1) a").css("color", "#C18F59");
+        }
+
+        // Experiencia
+        if ($(this).scrollTop() >= $("#experiencia").position().top) {
+            $("nav .item i").css("color", "white");
+            $("nav .item:nth-child(2) i").css("color", "#C18F59");
+            $("nav .item a").css("color", "white");
+            $("nav .item:nth-child(2) a").css("color", "#C18F59");
+        }
+
+        // Training
+        if ($(this).scrollTop() >= $("#training").position().top) {
+            $("nav .item i").css("color", "white");
+            $("nav .item:nth-child(3) i").css("color", "#C18F59");
+            $("nav .item a").css("color", "white");
+            $("nav .item:nth-child(3) a").css("color", "#C18F59");
+        }
+
+        // Contact
+        if ($(this).scrollTop() >= $("#contacto").position().top) {
+            $("nav .item i").css("color", "white");
+            $("nav .item:nth-child(4) i").css("color", "#C18F59");
+            $("nav .item a").css("color", "white");
+            $("nav .item:nth-child(4) a").css("color", "#C18F59");
+        }
+    }
 
     // ──────────────── //
     //     TRAINING     //
@@ -102,100 +207,3 @@ $(document).ready(function() {
         setTimeout(function () { $("#testimonials .testimonial-wrapper.active").css("opacity", "1"); }, 1500);
     })
 });
-
-$(document).scroll(function() {
-    parallax();
-    resizeNavbar();
-    highlightNavbar();
-    showTopButton();
-});
-
-// ────────────── //
-//     NAVBAR     //
-// ────────────── //
-
-// Function in charge of highlighting the current navigation bar item
-function highlightNavbar() {
-    
-    // Header
-    if ($(this).scrollTop() < $("#bienvenida").position().top) {
-        $("nav .item i").css("color", "white");
-        $("nav .item a").css("color", "white");
-    }
-
-    // Bienvenida
-    if ($(this).scrollTop() >= $("#bienvenida").position().top) {
-        $("nav .item i").css("color", "white");
-        $("nav .item:nth-child(1) i").css("color", "#C18F59");
-        $("nav .item a").css("color", "white");
-        $("nav .item:nth-child(1) a").css("color", "#C18F59");
-    }
-
-    // Experiencia
-    if ($(this).scrollTop() >= $("#experiencia").position().top) {
-        $("nav .item i").css("color", "white");
-        $("nav .item:nth-child(2) i").css("color", "#C18F59");
-        $("nav .item a").css("color", "white");
-        $("nav .item:nth-child(2) a").css("color", "#C18F59");
-    }
-
-    // Training
-    if ($(this).scrollTop() >= $("#training").position().top) {
-        $("nav .item i").css("color", "white");
-        $("nav .item:nth-child(3) i").css("color", "#C18F59");
-        $("nav .item a").css("color", "white");
-        $("nav .item:nth-child(3) a").css("color", "#C18F59");
-    }
-
-    // Contact
-    if ($(this).scrollTop() >= $("#contacto").position().top) {
-        $("nav .item i").css("color", "white");
-        $("nav .item:nth-child(4) i").css("color", "#C18F59");
-        $("nav .item a").css("color", "white");
-        $("nav .item:nth-child(4) a").css("color", "#C18F59");
-    }
-}
-
-// Function in charge of resizing the navigation bar according to the scroll position
-function resizeNavbar() {
-    if ($( document ).width() > 768) {
-        if ($(this).scrollTop() > 250)
-            $("nav").css({"padding" : "15px 0", "background-color" : "#2D3241"});
-        else
-            $("nav").css({"padding" : "40px 0", "background-color" : "rgba(45,50,65,.75)"});
-    }
-    else
-        $("nav").css("padding", "20px 0");
-}
-
-// ────────────────── //
-//     TOP BUTTON     //
-// ────────────────── //
-
-// Top Button Revealing
-function showTopButton () {
-    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150)
-        $(".top-button").css("opacity", "1");
-    else
-        $(".top-button").css("opacity", "0");
-}
-
-// ─────────────── //
-//     SPINNER     //
-// ─────────────── //
-
-function hideSpinner () {
-    $("#preloader .spinner").fadeOut(500, function () {
-        $("#preloader").delay(500).fadeOut(500);
-        setTimeout(function () { $("body").css("overflow", "visible"); }, 500);
-    });
-}
-
-// ──────────────── //
-//     PARALLAX     //
-// ──────────────── //
-
-// Function in charge of header's background image slowdown on scroll (a half of its normal speed)
-function parallax() {
-    $("header").css("background-position", "center " + ($(document).scrollTop() * .5) + "px");
-}
