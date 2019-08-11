@@ -118,13 +118,13 @@ $(document).scroll(function() {
 function highlightNavbar() {
     
     // Header
-    if ($(this).scrollTop() < $("#welcome").position().top) {
+    if ($(this).scrollTop() < $("#bienvenida").position().top) {
         $("nav .item i").css("color", "white");
         $("nav .item a").css("color", "white");
     }
 
     // Header
-    if ($(this).scrollTop() >= $("#welcome").position().top) {
+    if ($(this).scrollTop() >= $("#bienvenida").position().top) {
         $("nav .item i").css("color", "white");
         $("nav .item:nth-child(1) i").css("color", "#C18F59");
         $("nav .item a").css("color", "white");

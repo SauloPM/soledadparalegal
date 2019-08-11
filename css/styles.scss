@@ -6,8 +6,10 @@ $azul      : rgb(045,050,065); // #2D3241
 $dorado    : rgb(193,143,089); // #C18F59
 
 // Responsive
-$mobile :  480px;
-$tablet :  768px;
+$mobile :   480px;
+$tablet :   768px;
+$laptop :   980px;
+$desktop:  1200px;
 
 // ─────────────── //
 //     GENERAL     //
@@ -159,6 +161,11 @@ hr {
     left: 0;
     z-index: 25;
     width: 100%;
+}
+
+.z-index-50 {
+    position: relative;
+    z-index: 50;
 }
 
 // ────────────── //
@@ -452,78 +459,78 @@ header .rrss:hover i {
 // ────────────────── //
 
 #bienvenida {
+    padding-bottom: 0;
 
-    .overlay {
-        background: rgba(255,255,255,.95);
-    }
-}
-
-.tarjetas {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 100px;
-    
-    .tarjeta {
+    .tarjetas {
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-direction: column;
-        flex-shrink: 0;
-        background-color: $gris-claro;
-        border-top: 6px solid $gris;
-        padding: 55px 30px;
-        margin-bottom: 150px;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 100px;
         position: relative;
-        width: 275px;
-        transition: .5s;
-
-        .icono {
+        z-index: 50;
+        
+        .tarjeta {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: white;
-            font-size: 35px;
-            background-color: $dorado;
-            border-radius: 50%;
-            text-shadow: 1.5px 1.5px 2.5px #735535;
-            margin-bottom: 25px;
-            width: 75px;
-            height: 75px;
-        }
+            justify-content: flex-start;
+            flex-direction: column;
+            background-color: $gris-claro;
+            border-top: 6px solid $gris;
+            padding: 55px 30px;
+            margin: 0 auto 150px;
+            position: relative;
+            width: 275px;
+            transition: .5s;
+    
+            .icono {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                color: white;
+                font-size: 35px;
+                background-color: $dorado;
+                border-radius: 50%;
+                text-shadow: 1.5px 1.5px 2.5px #735535;
+                margin-bottom: 25px;
+                width: 75px;
+                height: 75px;
+            }
+    
+            .titulo {
+                font-size: 20px;
+                font-weight: 700;
+                font-family: 'Lato', sans-serif;
+                text-transform: uppercase;
+                border-bottom: 1px solid $gris;
+                letter-spacing: 1px;
+                padding: 0 10px 15px;
+                margin-bottom: 30px;
+            }
+    
+            .texto {
+                font-size: 15px;
+                font-weight: normal;
+                line-height: 25px;
+            }
 
-        .titulo {
-            font-size: 20px;
-            font-weight: 700;
-            font-family: 'Lato', sans-serif;
-            text-transform: uppercase;
-            border-bottom: 1px solid $gris;
-            letter-spacing: 1px;
-            padding: 0 10px 15px;
-            margin-bottom: 30px;
-        }
-
-        .texto {
-            font-size: 15px;
-            font-weight: normal;
-            line-height: 25px;
-        }
-
-        &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 0;
-            bottom: -50px;
-            width: 0;
-            height: 0;
-            border-top: 50px solid $gris-claro;
-            border-left: 137.5px solid transparent;
-            border-right: 137.5px solid transparent;
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                bottom: -50px;
+                width: 0;
+                height: 0;
+                border-top: 50px solid $gris-claro;
+                border-left: 137.5px solid transparent;
+                border-right: 137.5px solid transparent;
+            }
         }
     }
+
+    .overlay { background: rgba(255,255,255,.95) }
 }
 
 // Mobile First
@@ -532,19 +539,6 @@ header .rrss:hover i {
     #bienvenida {
         background: white url(../img/bg/about.png) fixed no-repeat center;
         background-size: cover;
-    }
-}
-
-@media only screen and (min-width: 992px) {
-    #bienvenida .tarjetas .tarjeta {
-        margin-bottom: 0;
-    }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    #bienvenida .tarjetas .tarjeta h5 {
-        font-size: 15px;
-        letter-spacing: 1px;
     }
 }
 
