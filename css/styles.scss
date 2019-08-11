@@ -604,72 +604,49 @@ header .rrss:hover i {
     }
 }
 
-// ────────────────── //
-//     EXPERIENCE     //
-// ────────────────── //
+// ─────────────────── //
+//     EXPERIENCIA     //
+// ─────────────────── //
 
-#experience .col-xs-10 {
-    padding: 5px;
-}
+#experiencia {
+    padding-bottom: 125px;
 
-/* Grid */
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(240,240,240);
+        box-shadow: inset 0 0 0 10px rgba(255,255,255,.5);
+        padding: 25px;
+        margin-bottom: 25px;
+        height: 300px;
 
-#experience .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgb(240,240,240);
-    box-shadow: inset 0 0 0 10px rgba(255,255,255,.5), 0 0 5px rgb(240,240,240);
-    position: relative;
-    height: 300px;
-    cursor: pointer;
-    transition: .5s;
-}
+        .empresa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $texto;
+            font-size: 12px;
+            text-align: center;
+            text-transform: uppercase;
+            background: rgba(255,255,255,.75);
+            background: linear-gradient(to left, rgba(255,255,255,.75), white, rgba(255,255,255,.75));
+            letter-spacing: 5px;
+            line-height: 25px;
+            padding: 25px;
+            position: relative;
+            z-index: 50;
+            width: 100%;
+            max-width: 375px;
+        }
 
-#experience .col-xs-10:nth-child(1) .wrapper { background: white url(../img/experience/1.jpg) center no-repeat; background-size: cover }
-#experience .col-xs-10:nth-child(2) .wrapper { background: white url(../img/experience/2.jpg) center no-repeat; background-size: cover }
-#experience .col-xs-10:nth-child(3) .wrapper { background: white url(../img/experience/3.jpg) center no-repeat; background-size: cover }
-#experience .col-xs-10:nth-child(4) .wrapper { background: white url(../img/experience/4.jpg) center no-repeat; background-size: cover }
+        .overlay { background: rgba(255,255,255,.25) }
+    }
 
-#experience .wrapper .overlay {
-    background: rgba(255,255,255,.2);
-    width: 100%;
-    height: 100%;
-}
-
-/* Information */
-
-#experience .wrapper .company {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    color: $azul;
-    font-size: 12px;
-    font-weight: normal;
-    text-transform: uppercase;
-    background: $azul;
-    background: linear-gradient(to right, rgba(45,50,65,.9), $azul, rgba(45,50,65,.9));
-    background: linear-gradient(to right, rgba(255,255,255,.75), white, rgba(255,255,255,.75));
-    white-space: nowrap;
-    letter-spacing: 5px;
-    position: relative;
-    z-index: 25;
-    height: 60px;
-    width: 375px;
-}
-
-#experience .wrapper .job {
-    display: none;
-    color: $dorado;
-    font-size: 25px;
-    font-weight: 900;
-    font-family: 'Playfair Display', sans-serif;
-    position: absolute;
-    left: 50%;
-    bottom: 25px;
-    z-index: 25;
-    transform: translateX(-50%);
+    .col-xs-12:nth-child(1) .item { background: white url(../img/experience/1.jpg) center no-repeat; background-size: cover }
+    .col-xs-12:nth-child(2) .item { background: white url(../img/experience/2.jpg) center no-repeat; background-size: cover }
+    .col-xs-12:nth-child(3) .item { background: white url(../img/experience/3.jpg) center no-repeat; background-size: cover }
+    .col-xs-12:nth-child(4) .item { background: white url(../img/experience/4.jpg) center no-repeat; background-size: cover }
 }
 
 /* ──────────────── */

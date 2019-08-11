@@ -123,7 +123,7 @@ function highlightNavbar() {
         $("nav .item a").css("color", "white");
     }
 
-    // Header
+    // Bienvenida
     if ($(this).scrollTop() >= $("#bienvenida").position().top) {
         $("nav .item i").css("color", "white");
         $("nav .item:nth-child(1) i").css("color", "#C18F59");
@@ -131,8 +131,8 @@ function highlightNavbar() {
         $("nav .item:nth-child(1) a").css("color", "#C18F59");
     }
 
-    // Experience
-    if ($(this).scrollTop() >= $("#experience").position().top) {
+    // Experiencia
+    if ($(this).scrollTop() >= $("#experiencia").position().top) {
         $("nav .item i").css("color", "white");
         $("nav .item:nth-child(2) i").css("color", "#C18F59");
         $("nav .item a").css("color", "white");
