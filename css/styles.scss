@@ -98,19 +98,8 @@ hr {
 
 // Scrollbar
 
-::-webkit-scrollbar {
-    width: 10px;
-}
+::-webkit-scrollbar { width: 0 }
 
-::-webkit-scrollbar-track {
-    background: $gris-claro;
-    box-shadow: inset 0 0 10px $gris;
-}
- 
-::-webkit-scrollbar-thumb {
-    background: linear-gradient($dorado, rgb(193,143,89,.75), $dorado);
-}
-  
 /* Placeholder */
 
 ::placeholder           { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
@@ -136,19 +125,26 @@ hr {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    z-index: 50;
-    padding: 0;
+    z-index: 75;
     width: 50px;
     height: 50px;
     opacity: 0;
     transition: .5s;
-}
 
-.top-button:hover,
-.top-button:active,
-.top-button:visited {
-    color: $dorado !important;
-    background: white;
+    &:visited {
+        color: white !important;
+        background: $dorado;
+    }
+
+    &:hover {
+        color: $dorado !important;
+        background: white;
+    }
+    
+    &:active {
+        color: white !important;
+        background: $dorado;
+    }
 }
 
 // Utils
@@ -182,7 +178,7 @@ nav {
     padding: 20px 0;
     position: fixed;
     bottom: 0;
-    z-index: 50;
+    z-index: 75;
     width: 100%;
     transition: .5s;
 }
@@ -950,7 +946,6 @@ header .rrss:hover i {
 
 #contacto {
     position: relative;
-    padding-bottom: 250px;
 
     .formulario {
 
@@ -969,8 +964,7 @@ header .rrss:hover i {
                 outline: none;
                 letter-spacing: 0;
                 width: 100%;
-                margin: 0 auto;
-                margin-bottom: 25px;
+                margin: 0 auto 25px;
                 padding: 15px;
                 padding-left: 45px;
                 transition: .5s;
@@ -985,8 +979,9 @@ header .rrss:hover i {
             }
     
             textarea {
-                height: 200px;
+                margin-bottom: 0;
                 resize: none;
+                height: 200px;
     
                 & + .icono {
                     top: 28px;
@@ -1016,7 +1011,7 @@ header .rrss:hover i {
             letter-spacing: 3px;
             text-align: center;
             text-transform: uppercase;
-            margin: 50px 0;
+            margin: 50px 0 0;
             padding: 25px 70px;
             width: 100%;
             transition: .5s;
@@ -1041,91 +1036,6 @@ header .rrss:hover i {
         background: white url(../img/bg/contact.jpeg) fixed no-repeat center;
         background-size: cover;
     }
-}
-
-/* ───────────────── */
-/*     INTERESTS     */
-/* ───────────────── */
-
-/* General */
-
-#interests {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 500px;
-    background: white url(../img/bg/hobbies.jpg) fixed center no-repeat;
-    background-size: cover;
-    padding: 100px 0;
-    display: none;
-}
-
-#interests .overlay {
-    background: rgb(193,143,89,.75);
-}
-
-#interests .overlay::after {
-    content: '';
-    display: block;
-    background: url(../img/ruido.png) repeat center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    opacity: .5;
-}
-
-/* Hexagon */
-
-#interests .hexagon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgb(193,143,89,.75);
-    position: relative;
-    margin: 0 25px;
-    width: 300px; 
-    height: 173.21px;
-}
-
-#interests .hexagon:after,
-#interests .hexagon:before {
-    content: "";
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-}
-
-#interests .hexagon:before {
-    bottom: 100%;
-    border-bottom: 86.60px solid rgb(193,143,89,.75);
-}
-
-#interests .hexagon:after {
-    top: 100%;
-    width: 0;
-    border-top: 86.60px solid rgb(193,143,89,.75);
-}
-
-#interests .hexagon img {
-    width: 100px;
-}
-
-#interests .hexagon .shadow {
-    display: block;
-    width: 165px;
-    height: 165px;
-    background: #428bca;
-    position: absolute;
-    top: 125px;
-    z-index: -1;
-    transform: rotate(-45deg) skew(15deg, 15deg);
 }
 
 // ─────────────── //
@@ -1229,153 +1139,54 @@ header .rrss:hover i {
     }
 }
 
-/* ────────────── */
-/*     FOOTER     */
-/* ────────────── */
-
-/* General */
+// ────────────── //
+//     FOOTER     //
+// ────────────── //
 
 footer {
-    text-align: center;
-    position: relative;
-}
+    border-top: 1px dotted $dorado;
 
-footer::before {
-    content: '';
-    display: block;
-    border-top: 1px solid rgba(193,143,89,.75);
-    border-bottom: 1px solid rgba(193,143,89,.75);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 4px;
-}
+    .legal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px 0;
+    
+        a {
+            display: inline-block;
+            color: $dorado;
+            font-size: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 3px;
+            margin: 0 15px;
+            white-space: nowrap;
+            width: 250px;
+            transition: .5s;
+        
+            &:hover { color: rgb(193,143,89,.5) }
+        }
+    }
 
-/* RRSS */
-
-footer .rrss {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    margin: 0 auto;
-    position: relative;
-    width: 250px;
-    height: 5px;
-}
-
-footer .rrss a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background: rgba(193,143,89,.1);
-    border-radius: 50%;
-    margin: 0 5px;
-    width: 65px;
-    height: 65px;
-    transition: .5s;
-}
-
-footer .rrss a:hover {
-    background: $dorado;
-}
-
-footer .rrss a i {
-    color: $dorado;
-    font-size: 25px;
-    transition: .5s;
-}
-
-footer .rrss a:hover i {
-    color: white;
-}
-
-/* Legal */
-
-footer .legal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 65px 0 40px;
-}
-
-footer .legal a {
-    display: inline-block;
-    color: $dorado;
-    font-size: 14px;
-    font-weight: normal;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 1px;
-    margin: 0 15px;
-    white-space: nowrap;
-    width: 250px;
-    transition: .5s;
-}
-
-footer .legal a:hover {
-    color: rgb(193,143,89,.5);
-}
-
-/*footer .legal a::after,
-footer .legal a::before {
-    content: '';
-    display: block;
-    background: $dorado;
-    background: linear-gradient(to right, rgb(193,143,89,.25), rgb(193,143,89,.75), rgb(193,143,89,.25));
-    position: relative;
-    width: 100%;
-    height: 1px;
-    opacity: 0;
-    transform: scaleX(0);  
-    transition: .25s ease-in-out;
-}
-
-footer .legal a::after  { top:    12px }
-footer .legal a::before { bottom: 12px }
-
-footer .legal a:hover::after,
-footer .legal a:hover::before {
-    opacity: .5;
-    transform: scaleX(1);
-}*/
-
-/* Copyright */
-
-footer .copyright {
-    background: $azul;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: relative;
-}
-
-footer .copyright::after {
-    content: '';
-    display: block;
-    background: url(../img/ruido.png) repeat center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    opacity: .25;
-}
-
-footer .copyright p {
-    color: white;
-    font-size: 10px;
-    font-weight: 300;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin: 0;
-}
-
-footer .copyright p span {
-    color: $dorado;
+    .copyright {
+        color: white;
+        font-size: 10px;
+        font-weight: 300;
+        text-align: center;
+        text-transform: uppercase;
+        background: $azul;
+        letter-spacing: 3px;
+        padding: 25px 0;
+        position: relative;
+    
+        span { color: $dorado }
+    
+        .overlay {
+            background: url(../img/ruido.png) repeat center;
+            opacity: .25;
+        }
+    }
 }
 
 /* ───────────── */
@@ -1431,9 +1242,9 @@ footer .copyright p span {
     opacity: .75;
 }
 
-/* ───────────────── */
-/*     PRELOADER     */
-/* ───────────────── */
+// ───────────────── //
+//     PRELOADER     //
+// ───────────────── //
 
 #preloader {
     position: fixed;
@@ -1441,111 +1252,55 @@ footer .copyright p span {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 99;
+    z-index: 100;
     background-color: white;
+
+    .spinner {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 150px;
+        height: 150px;
+        -webkit-animation: pulso 1.25s infinite ease-in-out;
+                animation: pulso 1.25s infinite ease-in-out;
+    }
 }
 
-#preloader .spinner {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 150px;
-    height: 150px;
-    -webkit-animation: sk-scaleout 1.25s infinite ease-in-out;
-       -moz-animation: sk-scaleout 1.25s infinite ease-in-out;
-         -o-animation: sk-scaleout 1.25s infinite ease-in-out;
-            animation: sk-scaleout 1.25s infinite ease-in-out;
-}
-
-@-webkit-keyframes sk-scaleout {
+@-webkit-keyframes pulso {
     0% {
         -webkit-transform: scale(1);
-           -moz-transform: scale(1);
-             -o-transform: scale(1);
+            -ms-transform: scale(1);
                 transform: scale(1);
     }
     50% {
         -webkit-transform: scale(1.05);
-           -moz-transform: scale(1.05);
-             -o-transform: scale(1.05);
+            -ms-transform: scale(1.05);
                 transform: scale(1.05);
     }
     100% {
         -webkit-transform: scale(1);
-           -moz-transform: scale(1);
-             -o-transform: scale(1);
+            -ms-transform: scale(1);
                 transform: scale(1);
     }
 }
 
-@-moz-keyframes sk-scaleout {
+@keyframes pulso {
     0% {
         -webkit-transform: scale(1);
-           -moz-transform: scale(1);
-             -o-transform: scale(1);
+            -ms-transform: scale(1);
                 transform: scale(1);
     }
     50% {
         -webkit-transform: scale(1.05);
-           -moz-transform: scale(1.05);
-             -o-transform: scale(1.05);
+            -ms-transform: scale(1.05);
                 transform: scale(1.05);
     }
     100% {
         -webkit-transform: scale(1);
-           -moz-transform: scale(1);
-             -o-transform: scale(1);
+            -ms-transform: scale(1);
                 transform: scale(1);
     }
-}
-
-@-o-keyframes sk-scaleout {
-    0% {
-        -webkit-transform: scale(1);
-           -moz-transform: scale(1);
-             -o-transform: scale(1);
-                transform: scale(1);
-    }
-    50% {
-        -webkit-transform: scale(1.05);
-           -moz-transform: scale(1.05);
-             -o-transform: scale(1.05);
-                transform: scale(1.05);
-    }
-    100% {
-        -webkit-transform: scale(1);
-           -moz-transform: scale(1);
-             -o-transform: scale(1);
-                transform: scale(1);
-    }
-}
-
-@keyframes sk-scaleout {
-    0% {
-        -webkit-transform: scale(1);
-           -moz-transform: scale(1);
-             -o-transform: scale(1);
-                transform: scale(1);
-    }
-    50% {
-        -webkit-transform: scale(1.05);
-           -moz-transform: scale(1.05);
-             -o-transform: scale(1.05);
-                transform: scale(1.05);
-    }
-    100% {
-        -webkit-transform: scale(1);
-           -moz-transform: scale(1);
-             -o-transform: scale(1);
-                transform: scale(1);
-    }
-}
-
-// Web Host App Watermark
-
-a[title^="Hosted on free web hosting"] {
-    display: none;
 }
