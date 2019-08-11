@@ -1,0 +1,14 @@
+# Sistema
+.DS_Store
+.htaccess
+
+# PHP
+.php.ini
+info.php
+
+#SASS
+css/styles.css
+css/styles.css.map
+
+# Imágenes
+img/
