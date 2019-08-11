@@ -117,9 +117,9 @@ hr {
 :-ms-input-placeholder  { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
 ::-ms-input-placeholder { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
 
-:focus::placeholder           { color: $dorado }
-:focus:-ms-input-placeholder  { color: $dorado }
-:focus::-ms-input-placeholder { color: $dorado }
+:focus::placeholder           { color: transparent }
+:focus:-ms-input-placeholder  { color: transparent }
+:focus::-ms-input-placeholder { color: transparent }
 
 // Top Button
 
@@ -620,6 +620,7 @@ header .rrss:hover i {
         padding: 25px;
         margin-bottom: 25px;
         height: 300px;
+        cursor: pointer;
 
         .empresa {
             display: flex;
@@ -638,6 +639,11 @@ header .rrss:hover i {
             z-index: 50;
             width: 100%;
             max-width: 375px;
+            transition: .25s;
+        }
+
+        &:hover .empresa {
+            color: $dorado;
         }
 
         .overlay { background: rgba(255,255,255,.25) }
@@ -938,116 +944,100 @@ header .rrss:hover i {
     color: white;
 }
 
-/* ─────────────── */
-/*     CONTACT     */
-/* ─────────────── */
+// ──────────────── //
+//     CONTACTO     //
+// ──────────────── //
 
-/* General */
-
-#contact {
+#contacto {
     position: relative;
     padding-bottom: 250px;
+
+    .formulario {
+
+        .entrada {
+            position: relative;
+    
+            input,
+            textarea {
+                display: block;
+                color: $texto;
+                font-size: 20px;
+                font-weight: 300px;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid $gris;
+                outline: none;
+                letter-spacing: 0;
+                width: 100%;
+                margin: 0 auto;
+                margin-bottom: 25px;
+                padding: 15px;
+                padding-left: 45px;
+                transition: .5s;
+    
+                &:focus {
+                    border-bottom-color: $dorado;
+    
+                    & + .icono {
+                        color: $dorado;
+                    }
+                }
+            }
+    
+            textarea {
+                height: 200px;
+                resize: none;
+    
+                & + .icono {
+                    top: 28px;
+                }
+            }
+    
+            .icono {
+                color: $gris;
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: .5s;
+            }
+        }
+    
+        .boton {
+            color: white;
+            font-size: 20px;
+            font-weight: 400;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: $azul;
+            border-radius: 2.5px;
+            border: 1.5px solid $azul;
+            outline: none;
+            letter-spacing: 3px;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 50px 0;
+            padding: 25px 70px;
+            width: 100%;
+            transition: .5s;
+        
+            &:hover {
+                color: $dorado;
+                text-decoration: none;
+                background: white;
+                border-color: $dorado;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .overlay { background-color: rgba(255,255,255,.95) }
 }
 
-#contact .overlay {
-    background-color: rgba(255,255,255,.95);
-}
-
-/* Input Icon */
-
-#contact .input-wrapper {
-    position: relative;
-}
-
-#contact .input-wrapper i {
-    color: $gris;
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: .5s;
-}
-
-#contact .input-wrapper:nth-child(4) i {
-    top: 27px;
-}
-
-/* Form */
-
-#contact form {
-    position: relative;
-    z-index: 25;
-}
-
-#contact form input,
-#contact form textarea {
-    display: block;
-    color: $texto;
-    font-size: 20px;
-    font-weight: 300px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid $gris;
-    letter-spacing: 0;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    padding: 15px;
-    padding-left: 45px;
-    transition: .5s;
-}
-
-#contact form textarea {
-    height: 200px;
-    resize: none;
-}
-
-#contact form input:focus,
-#contact form textarea:focus {
-    outline: none;
-    border-bottom-color: $dorado;
-}
-
-#contact form input:focus + i,
-#contact form textarea:focus + i {
-    color: $dorado;
-}
-
-/* Button */
-
-#contact form input[type="submit"] {
-    color: white;
-    font-size: 20px;
-    font-weight: 400;
-    text-decoration: none;
-    text-transform: uppercase;
-    background-color: $azul;
-    border-radius: 2.5px;
-    border: 1.5px solid $azul;
-    letter-spacing: 3px;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 50px 0;
-    padding: 25px 70px;
-    transition: .5s;
-}
-
-#contact form input[type="submit"]:hover {
-    color: $dorado;
-    text-decoration: none;
-    background: white;
-    border-color: $dorado;
-    cursor: pointer;
-}
-
-#contact form input[type="submit"]:focus {
-    box-shadow: none;
-}
-
-/* Mobile First */
+// Mobile First
 
 @media only screen and (min-width: $tablet) {
-    #contact {
+    #contacto {
         background: white url(../img/bg/contact.jpeg) fixed no-repeat center;
         background-size: cover;
     }

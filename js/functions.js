@@ -148,7 +148,7 @@ function highlightNavbar() {
     }
 
     // Contact
-    if ($(this).scrollTop() >= $("#contact").position().top) {
+    if ($(this).scrollTop() >= $("#contacto").position().top) {
         $("nav .item i").css("color", "white");
         $("nav .item:nth-child(4) i").css("color", "#C18F59");
         $("nav .item a").css("color", "white");

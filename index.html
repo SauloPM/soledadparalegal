@@ -440,36 +440,35 @@
         </div>
     </section>
 
-    <!-- ─────────────── -->
-    <!--     CONTACT     -->
-    <!-- ─────────────── -->
+    <!-- ──────────────── -->
+    <!--     CONTACTO     -->
+    <!-- ──────────────── -->
 
-    <section id="contact" class="text-center">
-        <div class="overlay"></div>
-        <h2 class="wow fadeIn"><span>C</span>ontacto</h2>
-        <hr class="wow fadeIn">        
-        <div class="container wow fadeIn">
-            <form name="miFormulario" action="enviar_email.php" method="post">
-                <div class="input-wrapper">
+    <section id="contacto" class="text-center">
+        <div class="container z-index-50">
+            <h2 class="wow fadeIn">Contacto</h2>
+            <hr>
+            <form class="formulario wow fadeIn" name="miFormulario" action="enviar_email.php" method="post">
+                <div class="entrada">
                     <input name="nombre" type="text" autocomplete="off" required placeholder="Nombre" title="Nombre y apellidos">
-                    <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
+                    <i class="icono fa fa-user-o fa-fw" aria-hidden="true"></i>
                 </div>
-                <div class="input-wrapper">
+                <div class="entrada">
                     <input name="email" type="email" autocomplete="off" required placeholder="Email" title="Email">
-                    <i class="fa fa-paper-plane-o fa-fw" aria-hidden="true"></i>
+                    <i class="icono fa fa-paper-plane-o fa-fw" aria-hidden="true"></i>
                 </div>
-                <div class="input-wrapper">
+                <div class="entrada">
                     <input name="asunto" type="text" autocomplete="off" required placeholder="Asunto" title="Asunto">
-                    <i class="fa fa-bookmark-o fa-fw" aria-hidden="true"></i>
+                    <i class="icono fa fa-bookmark-o fa-fw" aria-hidden="true"></i>
                 </div>
-                <div class="input-wrapper">
+                <div class="entrada">
                     <textarea name="mensaje" required autocomplete="off" placeholder="Mensaje" title="Mensaje"></textarea>
-                    <i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
+                    <i class="icono fa fa-envelope-o fa-fw" aria-hidden="true"></i>
                 </div>
-                    <input type="submit" value="Enviar">
-                </div>
+                <input class="boton" type="submit" value="Enviar">
             </form>
         </div>
+        <div class="overlay"></div>
     </section>
 
     <!-- ───────────────── -->
