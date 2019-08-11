@@ -918,10 +918,6 @@ header .rrss:hover i {
             width: 50px;
             height: 100%;
             transition: color .5s;
-
-            &:hover {
-                color: white;
-            }
         }
     }
 
@@ -985,6 +981,10 @@ header .rrss:hover i {
         &:hover .navigation .flecha {
             color: rgba(255,255,255,.15);
             transition: .5s;
+
+            &:hover {
+                color: white;
+            }
         }
 
         .navigation {
