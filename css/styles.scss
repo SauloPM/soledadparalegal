@@ -1242,6 +1242,9 @@ header {
     position: relative;
 
     .formulario {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 750px;
 
         .entrada {
             position: relative;
@@ -1250,7 +1253,7 @@ header {
             textarea {
                 display: block;
                 color: $texto;
-                font-size: 20px;
+                font-size: 15px;
                 font-weight: 300px;
                 background: transparent;
                 border: none;
@@ -1277,9 +1280,7 @@ header {
                 resize: none;
                 height: 200px;
     
-                & + .icono {
-                    top: 28px;
-                }
+                & + .icono { top: 24px }
             }
     
             .icono {
@@ -1294,7 +1295,7 @@ header {
     
         .boton {
             color: white;
-            font-size: 20px;
+            font-size: 12px;
             font-weight: 400;
             text-decoration: none;
             text-transform: uppercase;
@@ -1326,9 +1327,27 @@ header {
 // Mobile First
 
 @media only screen and (min-width: $tablet) {
+    
     #contacto {
         background: white url(../img/bg/contacto.jpg) fixed no-repeat center;
         background-size: cover;
+
+        .formulario {
+
+            .entrada {
+
+                input,
+                textarea {
+                    font-size: 20px;
+                }
+
+                textarea + .icono { top: 28px }
+            }
+
+            .boton {
+                font-size: 15px;
+            }
+        }
     }
 }
 
