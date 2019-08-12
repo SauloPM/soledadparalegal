@@ -60,7 +60,7 @@
     <!--     NAVBAR     -->
     <!-- ────────────── -->
 
-    <nav>
+    <nav class="hidden">
         <div class="item">
             <a class="smooth-scrolling" href="#bienvenida">
                 <i class="fa fa-home fa-fw" aria-hidden="true"></i>
@@ -91,27 +91,36 @@
     <!--     HEADER     -->
     <!-- ────────────── -->
 
-    <header class="hidden">
-        <div class="overlay"></div>
-        <img class="logo" src="img/logo.png" alt="Logotipo">
-        <h1>Soledad Poveda<span class="subtitle">Asistente Legal</span></h1>
-        <a class="smooth-scrolling" href="#welcome" title="Saber más">
+    <header>
+        
+        <!-- Heading -->
+        <img class="logo z-index-50" src="img/logo.png" alt="Logotipo">
+        <div class="titulo z-index-50">
+            <h1>Soledad Poveda</h1>
+            <div class="subtitulo">
+                <hr><h2>Asistente Legal</h2><hr>
+            </div>
+        </div>
+
+        <!-- Contacto -->
+        <span class="contacto">
+            <i class="icono fa fa-mobile" aria-hidden="true"></i>
+            <span class="telefono">649 998 278</span>
+            <span class="email">info@soledadparalegal.com</span>
+        </span>
+
+        <!-- LinkedIn -->
+        <a class="linkedin" href="https://es.linkedin.com/in/soledad-poveda-montesdeoca-76996152" target="_blank" title="Perfil oficial de LinkedIn">
+            <i class="icono fa fa-fw fa-linkedin" aria-hidden="true"></i>
+        </a>
+
+        <!-- Flecha -->
+        <a class="flecha smooth-scrolling" href="#bienvenida" title="Saber más">
             <i class="fa fa-angle-down" aria-hidden="true"></i>
         </a>
-        <span class="contact-data">
-            <i class="fa fa-mobile" aria-hidden="true"></i>
-            <p>649 998 278</p>
-            <p>info@soledadparalegal.com</p>
-        </span>
-        <a class="rrss facebook" href="#" title="Perfil oficial de Facebook">
-            <i class="fa fa-fw fa-facebook" aria-hidden="true"></i>
-        </a>
-        <a class="rrss twitter" href="https://twitter.com/canparalegal" title="Perfil oficial de Twitter">
-            <i class="fa fa-fw fa-twitter" aria-hidden="true"></i>
-        </a>
-        <a class="rrss linkedin" href="#" title="Perfil oficial de LinkedIn">
-            <i class="fa fa-fw fa-linkedin" aria-hidden="true"></i>
-        </a>
+
+        <div class="overlay ruido"></div>
+
     </header>
 
     <!-- ────────────────── -->
@@ -120,7 +129,7 @@
 
     <section id="bienvenida" class="text-center wow fadeIn">
         <div class="container z-index-50">
-            <h2 class="wow fadeIn">Bienvenido</h2>
+            <h3 class="wow fadeIn">Bienvenido</h3>
             <hr>
             <p>
                 Mi nombre es Soledad Poveda Montesdeoca. Estoy <strong>licenciada en Derecho</strong> por La Universidad de Las Palmas de Gran Canaria y cuento con <strong>más de 4 años de experiencia laboral</strong>. Me apasiona el estudio del <strong>Derecho Procesal</strong> en cualquiera de sus órdenes: su conocimiento es fundamental y necesario en todo procedimiento judicial. Esta pasión, unida al trabajo escrito, la investigación jurídica y el estudio constante, son los ingredientes incondicionales para dar soporte a letrados como <strong>licenciada en Derecho</strong>, esto es, como <strong>asistente legal</strong> o <strong>paralegal</strong>.
@@ -157,7 +166,7 @@
 
     <aside id="callout">
         <p class="texto wow fadeIn">Cuando no sepas <span>cómo</span> iniciar, continuar o finalizar un procedimiento judicial, acude a la <span>Ley Procesal</span></p>
-        <div class="overlay"></div>
+        <div class="overlay ruido"></div>
     </aside>
 
     <!-- ────────────────── -->
@@ -166,7 +175,7 @@
 
     <section id="experiencia">
         <div class="container">
-            <h2 class="wow fadeIn">Experiencia</h2>
+            <h3 class="wow fadeIn">Experiencia</h3>
             <hr>
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
@@ -243,7 +252,7 @@
 
     <section id="training" class="hidden">
         <div class="overlay"></div>
-        <h2 class="wow fadeIn">Formación</h2>
+        <h3 class="wow fadeIn">Formación</h3>
         <hr>
         <div class="container">
             <div class="row">
@@ -438,7 +447,7 @@
 
     <section id="contacto" class="text-center">
         <div class="container z-index-50">
-            <h2 class="wow fadeIn">Contacto</h2>
+            <h3 class="wow fadeIn">Contacto</h3>
             <hr>
             <form class="formulario wow fadeIn" name="miFormulario" action="enviar_email.php" method="post">
                 <div class="entrada">

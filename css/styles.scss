@@ -11,6 +11,32 @@ $tablet :   768px;
 $laptop :   980px;
 $desktop:  1200px;
 
+// Fonts
+
+@font-face {
+    font-family: Mermaid;
+    src: url(../fonts/mermaid.ttf);
+}
+
+// Scrollbar
+
+::-webkit-scrollbar { width: 0 }
+
+// Text Selection
+
+::-moz-selection { color: white; background-color: $dorado }
+::selection      { color: white; background-color: $dorado }
+
+/* Placeholder */
+
+::placeholder           { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
+:-ms-input-placeholder  { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
+::-ms-input-placeholder { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
+
+:focus::placeholder           { color: transparent }
+:focus:-ms-input-placeholder  { color: transparent }
+:focus::-ms-input-placeholder { color: transparent }
+
 // ─────────────── //
 //     GENERAL     //
 // ─────────────── //
@@ -32,12 +58,6 @@ section {
     position: relative;
 }
 
-@media only screen and (min-width: $mobile) {
-    section {
-        padding: 150px 0;
-    }
-}
-
 p, li {
     font-size: 18px;
     line-height: 45px;
@@ -48,7 +68,7 @@ p, li {
     }
 }
 
-h2 {
+h3 {
     color: $dorado;
     font-size: 40px;
     font-weight: 900;
@@ -62,104 +82,33 @@ h2 {
     margin: 0;
     position: relative;
     z-index: 25;
+
+    & + hr {
+        width: 50px;
+        height: 10px;
+        margin-bottom: 50px;
+        background-color: rgba(193,143,089,.35);
+        border: none;
+    }
+}
+
+// Mobile First
+
+@media only screen and (min-width: $mobile) {
+    section {
+        padding: 150px 0;
+    }
 }
 
 @media only screen and (min-width: $tablet) {
-    h2 {
+    h3 {
         font-size: 75px;
     }
 }
 
-h3 {
-    display: block;
-    color: $dorado;
-    font-size: 25px;
-    font-weight: 900;
-    font-family: 'Playfair Display', sans-serif;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(193,143,89,.25);
-    padding-bottom: 25px;
-    margin: 25px 0;
-}
-
-hr {
-    width: 50px;
-    height: 10px;
-    margin-bottom: 50px;
-    background-color: rgba(193,143,089,.35);
-    border: none;
-}
-
-// Fonts
-
-@font-face {
-  font-family: Mermaid;
-  src: url(../fonts/mermaid.ttf);
-}
-
-// Text Selection
-
-::-moz-selection { color: white; background-color: $dorado }
-::selection      { color: white; background-color: $dorado }
-
-// Scrollbar
-
-::-webkit-scrollbar { width: 0 }
-
-/* Placeholder */
-
-::placeholder           { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
-:-ms-input-placeholder  { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
-::-ms-input-placeholder { color: $gris; font-weight: normal; letter-spacing: 1px; text-transform: uppercase; transition: .5s }
-
-:focus::placeholder           { color: transparent }
-:focus:-ms-input-placeholder  { color: transparent }
-:focus::-ms-input-placeholder { color: transparent }
-
-// Top Button
-
-.top-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white !important;
-    font-size: 25px;
-    text-decoration: none !important;
-    background: $dorado;
-    border: 2px solid $dorado;
-    border-radius: 2px;
-    position: fixed;
-    bottom: 75px;
-    right: 25px;
-    z-index: 75;
-    width: 50px;
-    height: 50px;
-    opacity: 0;
-    transition: .5s;
-
-    &:visited {
-        color: white !important;
-        background: $dorado;
-    }
-
-    &:hover {
-        color: $dorado !important;
-        background: white;
-    }
-    
-    &:active {
-        color: white !important;
-        background: $dorado;
-    }
-}
-
-@media only screen and (min-width: $mobile) {
-    .top-button {
-        bottom: 25px;
-    }
-}
-
-// Utils
+// ───────────── //
+//     UTILS     //
+// ───────────── //
 
 .overlay {
     position: absolute;
@@ -169,6 +118,19 @@ hr {
     left: 0;
     z-index: 25;
     width: 100%;
+
+    &.ruido::after {
+        content: "";
+        display: block;
+        background: rgba(45,50,65,.75) url(../img/ruido.png) repeat center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        opacity: .5;
+    }
 }
 
 .z-index-50 {
@@ -270,196 +232,286 @@ nav .item:hover a p {
     }
 }
 
-/* ────────────── */
-/*     HEADER     */
-/* ────────────── */
-
-/* General */
+// ────────────── //
+//     HEADER     //
+// ────────────── //
 
 header {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
+    padding: 150px 25px 50px;
     position: relative;
-    min-height: 100vh;
+    min-height: 350px;
     background: white url(../img/bg/header.jpg) no-repeat top center;
     background-size: cover;
     box-shadow: inset 0 0 150px black;
+
+    // Heading
+
+    .logo {
+        // margin-top: 275px;
+        margin: 0 auto 35px;
+        width: 90px;
+        height: auto;
+    }
+
+    .titulo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 auto;
+
+        h1 {
+            color: rgba(255,255,255,.85);
+            font-size: 50px;
+            font-weight: 900;
+            font-family: 'Mermaid', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            line-height: 65px;
+            margin: 20px 0;
+        }
+
+        .subtitulo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            bottom: 20px;
+            width: 100%;
+
+            h2 {
+                display: block;
+                color: rgba(255,255,255,.5);
+                font-size: 15px;
+                font-weight: 300;
+                font-family: 'Lato', sans-serif;
+                text-transform: uppercase;
+                white-space: nowrap;
+                letter-spacing: 5px;
+                line-height: 30px;
+                margin: 0 10px;
+            }
+
+            hr {
+                display: block;
+                background: rgba(255,255,255,.25);
+                border: none;
+                margin: 0;
+                height: 1px;
+                width: 100%;
+
+                &:first-child { left: 0 }
+                &:last-child  { right: 0 }
+            }
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            background: rgba(255,255,255,.25);
+            height: 1px;
+            width: 100%;
+        }
+    }
+
+    // Contacto
+
+    .contacto {
+        color: rgba(255,255,255,.5);
+        position: absolute;
+        left: 25px;
+        top: 30px;
+        z-index: 50;
+
+        .icono {
+            font-size: 50px;
+        }
+
+        .telefono, .email {
+            font-size: 12px;
+            white-space: nowrap;
+            position: absolute;
+            left: 32px;
+        }
+
+        .telefono { top   : 8px }
+        .email    { bottom: 8px }
+    }
+
+    // LinkedIn
+
+    .linkedin {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none !important;
+        border-radius: 50%;
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        z-index: 50;
+        height: 55px;
+        width: 55px;
+        transition: .5s;
+        cursor: pointer;
+    
+        .icono {
+            color: rgba(255,255,255,.5);
+            font-size: 20px;
+        }
+    
+        &::after,
+        &::before {
+            content: "";
+            display: block;
+            background: rgba(255,255,255,.1);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: .3s ease-in-out;
+        }
+    
+        &::after  { transform: scale(0) }
+        &::before { transform: scale(1) }
+    
+        &:hover {
+    
+            &::before {
+                background: transparent;
+                border-color: transparent;
+                transform: scale(1.25);
+            }
+    
+            &::after {
+                transform: scale(1);
+            }
+        }
+    }
+
+    // Flecha
+
+    .flecha {
+        color: rgba(255,255,255,.25) !important;
+        font-size: 50px;
+        text-decoration: none;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        z-index: 50;
+        transform: translateX(-50%);
+        transition: .5s;
+    
+        &:hover { color: rgba(193,143,89,.75) !important; }
+    }
+
+    .overlay { background: rgba(045,050,065,.25) }
 }
 
-header .overlay {
-    background: rgba(0,0,0,0.5);
-}
+// Mobile First
 
-header .overlay::after {
-    content: '';
-    display: block;
-    background: rgba(45,50,65,.75) url(../img/ruido.png) repeat center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    opacity: .5;
-}
+@media only screen and (min-width: $mobile) {
 
-/* Title */
+    header {
+        padding: 150px 25px 90px;
 
-h1 {
-    display: block;
-    color: rgba(255,255,255,.85);
-    font-size: 75px;
-    font-weight: 900;
-    font-family: 'Mermaid', sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    line-height: 125px;
-    margin: 50px auto;
-    position: relative;
-    z-index: 25;
-}
+        // Heading
 
-h1::before {
-    content: '';
-    display: block;
-    background: rgba(255,255,255,.5);
-    background: linear-gradient(to right, transparent, rgba(255,255,255,.5), transparent);
-    height: 1px;
-    width: 900px;
-}
+        .titulo {
 
-h1 .subtitle {
-    display: block;
-    color: rgba(255,255,255,.5);
-    font-size: 20px;
-    font-weight: 300;
-    font-family: 'Lato', sans-serif;
-    letter-spacing: 5px;
-    line-height: 30px;
-    position: relative;
-    bottom: 20px;
-}
+            h1 {
+                font-size: 40px;
+                white-space: nowrap;
+                line-height: 100px;
+                padding: 0 25px;
+                margin: 0;
+            }
 
-h1 .subtitle::after,
-h1 .subtitle::before {
-    content: '';
-    display: block;
-    background: rgba(255,255,255,.25);
-    position: absolute;
-    top: 16px;
-    height: 1px;
-    width: 285px;
-}
+            .subtitulo {
 
-h1 .subtitle::before {
-    left: 0;
-    background: linear-gradient(to left, rgba(255,255,255,.5), transparent);
-}
+                h2 { margin: 0 25px }
 
-h1 .subtitle::after {
-    right: 0;
-    background: linear-gradient(to right, rgba(255,255,255,.5), transparent);
-}
+                hr:first-child { background: linear-gradient(to left , rgba(255,255,255,.5), transparent) }
+                hr:last-child  { background: linear-gradient(to right, rgba(255,255,255,.5), transparent) }
+            }
 
-/* Logo */
+            &::before { background: linear-gradient(to right, transparent, rgba(255,255,255,.5), transparent) }
+        }
 
-header img.logo {
-    margin-top: 275px;
-    position: relative;
-    z-index: 25;
-    max-width: 125px;
-}
+        // Flecha
 
-/* Contact data */
-
-header .contact-data {
-    color: rgba(255,255,255,.5);
-    position: absolute;
-    left: 25px;
-    bottom: 25px;
-    z-index: 25;
-}
-
-header .contact-data i {
-    font-size: 70px;
-}
-
-header .contact-data p {
-    white-space: nowrap;
-    position: absolute;
-    left: 45px;
-}
-
-header .contact-data i + p     { top: 0    }
-header .contact-data i + p + p { bottom: 0 }
-
-/* Arrow */
-
-header .page-scroll {
-    color: rgba(255,255,255,.25) !important;
-    font-size: 100px;
-    text-decoration: none;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: .5s;
-}
-
-header .page-scroll:hover {
-    color: rgba(193,143,89,.75) !important;
-}
-
-/* RRSS */
-
-header .rrss {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background: rgba(255,255,255,.1);
-    border-radius: 50%;
-    position: absolute;
-    right: 25px;
-    height: 65px;
-    width: 65px;
-    cursor: pointer;
-    transition: .5s;
-}
-
-header .rrss:hover {
-    background: rgba(255,255,255,.15);
-}
-
-header .rrss.facebook {
-    top: 150px;
-}
-
-header .rrss.twitter {
-    top: 240px;
-}
-
-header .rrss.linkedin {
-    top: 330px;
-}
-
-header .rrss i {
-    color: rgba(255,255,255,.5);
-    font-size: 25px;
-    transition: .5s;
-}
-
-header .rrss:hover i {
-    transform: scale(.9);
-}
-
-@media only screen and (max-width: 767px) and (orientation: landscape) {
+        .flecha { font-size: 100px }
+    }
 }
 
 @media only screen and (min-width: $tablet) {
+
+    header {
+
+        // Contacto
+
+        .contacto {
+            top: auto;
+            bottom: 15px;
+
+            .icono {
+                font-size: 70px;
+            }
+
+            .telefono, .email {
+                font-size: 15px;
+                left: 45px;
+            }
+
+            .telefono { top   : 15px }
+            .email    { bottom: 15px }
+        }
+
+        // LinkedIn
+
+        .linkedin {
+            top: 150px;
+            bottom: auto;
+            height: 65px;
+            width: 65px;
+        
+            .icono {
+                font-size: 25px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $laptop) {
+    
+    header {
+
+        .logo {
+            margin: 0 auto 50px;
+            width: 125px;
+        }
+
+        .titulo {
+    
+            h1 {
+                font-size: 75px;
+                line-height: 125px;
+                padding: 0 100px;
+            }
+    
+            .subtitulo h2 {
+                font-size: 20px;
+                line-height: 30px;
+            }
+        }
+    }
 }
 
 // ────────────────── //
@@ -580,22 +632,7 @@ header .rrss:hover i {
         }
     }
 
-    .overlay {
-        background: rgba(45,50,65,.75);
-
-        &::after {
-            content: '';
-            display: block;
-            background: rgba(45,50,65,.75) url(../img/ruido.png) repeat center;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            opacity: .5;
-        }
-    }
+    .overlay { background: rgba(45,50,65,.75) }
 }
 
 // Mobile First
@@ -704,7 +741,7 @@ header .rrss:hover i {
 }
 
 #training .year-selector .horizontal-line .indicator {
-    content: '';
+    content: "";
     display: inline-block;
     background: white;
     border: 1px solid $dorado;
@@ -927,7 +964,7 @@ header .rrss:hover i {
         background: rgba(45,50,65,.75);
     
         &::after {
-            content: '';
+            content: "";
             background: rgba(45,50,65,.75) url(../img/ruido.png) repeat center;
             position: absolute;
             top: 0;
@@ -1145,7 +1182,7 @@ header .rrss:hover i {
     height: 350px;
 
     &::after {
-        content: '';
+        content: "";
         display: block;
         background: url(../img/ruido.png) repeat center;
         position: absolute;
@@ -1174,7 +1211,7 @@ header .rrss:hover i {
         &:nth-child(3) { background: url('../img/hobbies/astronomy.jpg') no-repeat center; background-size: cover }
 
         &::after {
-            content: '';
+            content: "";
             display: block;
             border: 1px solid rgb(255,255,255,.15);
             border-radius: 50%;
@@ -1310,7 +1347,7 @@ footer {
 }
 
 #legal ul li::before {
-    content: '';
+    content: "";
     display: inline-block;
     background: $dorado;
     margin-right: -8px;
@@ -1335,6 +1372,51 @@ footer {
 
 #legal a:hover {
     opacity: .75;
+}
+
+// ────────────────── //
+//     TOP BUTTON     //
+// ────────────────── //
+
+.top-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    font-size: 25px;
+    text-decoration: none !important;
+    background: $dorado;
+    border: 2px solid $dorado;
+    border-radius: 2px;
+    position: fixed;
+    bottom: 75px;
+    right: 25px;
+    z-index: 75;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: .5s;
+
+    &:visited {
+        color: white !important;
+        background: $dorado;
+    }
+
+    &:hover {
+        color: $dorado !important;
+        background: white;
+    }
+    
+    &:active {
+        color: white !important;
+        background: $dorado;
+    }
+}
+
+@media only screen and (min-width: $mobile) {
+    .top-button {
+        bottom: 25px;
+    }
 }
 
 // ───────────────── //
