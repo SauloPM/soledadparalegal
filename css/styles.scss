@@ -3,7 +3,7 @@ $texto     : rgb(118,118,118); // #767676
 $gris      : rgb(220,220,220); // #E1E4E3
 $gris-claro: rgb(240,240,240); // #F0F0F0
 $azul      : rgb(045,050,065); // #2D3241
-$dorado    : rgb(193,143,089); // #C18F59
+$dorado    : rgb(195,145,090); // #C18F59
 
 // Responsive
 $mobile :   480px;
@@ -540,7 +540,7 @@ header {
         align-items: flex-start;
         justify-content: space-between;
         flex-wrap: wrap;
-        margin-top: 100px;
+        margin-top: 50px;
         position: relative;
         z-index: 50;
         
@@ -613,6 +613,8 @@ header {
     #bienvenida {
         background: white url(../img/bg/bienvenida.jpg) fixed no-repeat center;
         background-size: cover;
+
+        .tarjetas { margin-top: 100px }
     }
 }
 
