@@ -420,7 +420,7 @@ header {
 @media only screen and (min-width: $mobile) {
 
     header {
-        padding: 150px 25px 90px;
+        padding: 300px 25px 90px;
 
         // Heading
 
@@ -492,6 +492,8 @@ header {
 @media only screen and (min-width: $laptop) {
     
     header {
+        padding: 300px 25px 125px;
+        min-height: 100vh;
 
         .logo {
             margin: 0 auto 50px;
