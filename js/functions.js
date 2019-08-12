@@ -93,34 +93,35 @@ $(document).ready(function() {
 
     // Function in charge of highlighting the current navigation bar item
     function highlightNavbar() {
-        
-        // Header
-        if ($(this).scrollTop() < $("#bienvenida").position().top)
-            $("nav .item").css("color", "white");
-
-        // Bienvenida
-        if ($(this).scrollTop() >= $("#bienvenida").position().top) {
-            $("nav .item").css("color", "white");
-            $("nav .item:nth-child(1)").css("color", "#C18F59");
-        }
-
-        // Experiencia
-        if ($(this).scrollTop() >= $("#experiencia").position().top) {
-            $("nav .item").css("color", "white");
-            $("nav .item:nth-child(2)").css("color", "#C18F59");
-        }
-
-        // Formación
-        if ($(this).scrollTop() >= $("#formacion").position().top) {
-            $("nav .item").css("color", "white");
-            $("nav .item:nth-child(3)").css("color", "#C18F59");
-        }
 
         // Contacto
         if ($(this).scrollTop() >= $("#contacto").position().top) {
             $("nav .item").css("color", "white");
             $("nav .item:nth-child(4)").css("color", "#C18F59");
         }
+        
+        // Formación
+        else if ($(this).scrollTop() >= $("#formacion").position().top) {
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(3)").css("color", "#C18F59");
+        }
+        
+        // Experiencia
+        else if ($(this).scrollTop() >= $("#experiencia").position().top) {
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(2)").css("color", "#C18F59");
+        }
+        
+        
+        // Bienvenida
+        else if ($(this).scrollTop() >= $("#bienvenida").position().top) {
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(1)").css("color", "#C18F59");
+        }
+
+        // Header
+        else
+            $("nav .item").css("color", "white");
     }
 
     // ───────────────── //

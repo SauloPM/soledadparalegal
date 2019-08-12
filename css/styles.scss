@@ -606,7 +606,7 @@ header {
 
 @media only screen and (min-width: $mobile) {
     #bienvenida {
-        background: white url(../img/bg/about.png) fixed no-repeat center;
+        background: white url(../img/bg/bienvenida.jpg) fixed no-repeat center;
         background-size: cover;
     }
 }
@@ -725,7 +725,7 @@ header {
 /* ───────────────── */
 
 #formacion {
-    background: white url(../img/bg/training.jpg) fixed no-repeat center;
+    background: white url(../img/bg/formacion.jpg) fixed no-repeat center;
     background-size: cover;
     padding-left: 10px;
     padding-right: 10px;
@@ -998,7 +998,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(../img/bg/testimonials.jpg) fixed center no-repeat;
+    background: url(../img/bg/testimonios.jpg) fixed center no-repeat;
     background-size: cover;
     padding: 100px 10px;
 
@@ -1320,7 +1320,7 @@ header {
 
 @media only screen and (min-width: $tablet) {
     #contacto {
-        background: white url(../img/bg/contact.jpeg) fixed no-repeat center;
+        background: white url(../img/bg/contacto.jpg) fixed no-repeat center;
         background-size: cover;
     }
 }
