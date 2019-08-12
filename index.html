@@ -60,7 +60,7 @@
     <!--     NAVBAR     -->
     <!-- ────────────── -->
 
-    <nav>
+    <nav hidden>
         <a class="item smooth-scrolling" href="#bienvenida">
             <i class="icono fa fa-user fa-fw" aria-hidden="true"></i>
             <span class="texto">Bienvenido</span>
@@ -242,175 +242,177 @@
     <!--     FORMACIÓN     -->
     <!-- ───────────────── -->
 
-    <section id="formacion"></section>
-    <section id="formacions" class="hidden">
-        <div class="overlay"></div>
+    <section id="formacion">
         <h3 class="wow fadeIn">Formación</h3>
         <hr>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1">
-                    <div class="year-selector">
-                        <span class="horizontal-line">
-                            <span class="indicator"></span>
-                            <p class="year active" data-year="2007">2007</p>
-                            <p class="year" data-year="2008">2008</p>
-                            <p class="year" data-year="2009">2009</p>
-                            <p class="year" data-year="2010">2010</p>
-                            <p class="year" data-year="2011">2011</p>
-                            <p class="year" data-year="2012">2012</p>
-                            <p class="year" data-year="2013">2013</p>
-                            <p class="year" data-year="2014">2014</p>
-                        </span>
-                    </div>
-                </div>
-            </div>
+        <div class="selector z-index-50">
+            <span class="barra">
+                <p class="year active" data-year="2007">2007</p>
+                <p class="year" data-year="2008">2008</p>
+                <p class="year" data-year="2009">2009</p>
+                <p class="year" data-year="2010">2010</p>
+                <p class="year" data-year="2011">2011</p>
+                <p class="year" data-year="2012">2012</p>
+                <p class="year" data-year="2013">2013</p>
+                <p class="year" data-year="2014">2014</p>
+                <span class="circulo"></span>
+            </span>
         </div>
-        <div class="carrusel">
+        <div class="carrusel z-index-50">
             <div class="year-content active" data-content="2007">
-                <div class="year-content-wrapper">
-                    <div class="duration">5 años</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">5 años</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Licenciatura en Derecho
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Universidad de Las Palmas de Gran Canaria</div>
+                    <div class="empresa">Universidad de Las Palmas de Gran Canaria</div>
                 </div>
-                <div class="year-content-wrapper">
-                    <div class="duration">20 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">20 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Asesor de Empresas
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Fundación Universitaria de Las Palmas</div>
+                    <div class="empresa">Fundación Universitaria de Las Palmas</div>
                 </div>
-                <div class="year-content-wrapper">
-                    <div class="duration">20 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">20 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Consultor de Empresas
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Universidad de Las Palmas de Gran Canaria</div>
+                    <div class="empresa">Universidad de Las Palmas de Gran Canaria</div>
                 </div>
             </div>
             <div class="year-content" data-content="2008">
-                <div class="year-content-wrapper">
-                    <div class="duration">100 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">100 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Experto en Derecho Inmobiliario Registral
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Registradores de la Propiedad y Mercantiles de España</div>
+                    <div class="empresa">Registradores de la Propiedad y Mercantiles de España</div>
                 </div>
             </div>
             <div class="year-content" data-content="2009">
-                <div class="year-content-wrapper">
-                    <div class="duration">20 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">20 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Aprender a trabajar en equipo
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Fundación Universitaria de Las Palmas</div>
+                    <div class="empresa">Fundación Universitaria de Las Palmas</div>
                 </div>
             </div>
             <div class="year-content" data-content="2010">
-                <div class="year-content-wrapper">
-                    <div class="duration">20 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">20 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         La Protección de Datos en la Legislación Española
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Universidad de Las Palmas de Gran Canaria</div>
+                    <div class="empresa">Universidad de Las Palmas de Gran Canaria</div>
                 </div>
-                <div class="year-content-wrapper">
-                    <div class="duration">60 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">60 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Programa de Gestores de la Innovación
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Agencia Canaria de Investigación, Innovación y Sociedad de la Información</div>
+                    <div class="empresa">Agencia Canaria de Investigación, Innovación y Sociedad de la Información</div>
                 </div>
             </div>
             <div class="year-content" data-content="2011">
-                <div class="year-content-wrapper">
-                    <div class="duration">16 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">16 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Creación de Empresas en Internet
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Cámara de comercio de Gran Canaria</div>
+                    <div class="empresa">Cámara de comercio de Gran Canaria</div>
                 </div>
-                <div class="year-content-wrapper">
-                    <div class="duration">20 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">20 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Tratamiento Jurídico-Social de la Extranjería en España
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Universidad de Las Palmas de Gran Canaria</div>
+                    <div class="empresa">Universidad de Las Palmas de Gran Canaria</div>
                 </div>
             </div>
             <div class="year-content" data-content="2012">
-                <div class="year-content-wrapper">
-                    <div class="duration">40 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">40 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Aplicación Judicial del Derecho Extranjero en Materia de Familia
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Tirant Formación</div>
+                    <div class="empresa">Tirant Formación</div>
                 </div>
-                <div class="year-content-wrapper">
-                    <div class="duration">102 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">102 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         El Derecho, las Redes Sociales y la Gestión de las Comunidades Virtuales
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Universidad de Las Palmas de Gran Canaria</div>
+                    <div class="empresa">Universidad de Las Palmas de Gran Canaria</div>
                 </div>
             </div>
             <div class="year-content" data-content="2013">
-                <div class="year-content-wrapper">
-                    <div class="duration">800 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">800 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Formación Práctica para el ejercicio de la Abogacía
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Ilustre Colegio de Abogados de Las Palmas</div>
+                    <div class="empresa">Ilustre Colegio de Abogados de Las Palmas</div>
                 </div>
-                <div class="year-content-wrapper">
-                    <div class="duration">20 horas</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">20 horas</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Auditor de Salud y Seguridad Laboral
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Universidad de Las Palmas de Gran Canaria</div>
+                    <div class="empresa">Universidad de Las Palmas de Gran Canaria</div>
                 </div>
             </div>
             <div class="year-content" data-content="2014">
-                <div class="year-content-wrapper">
-                    <div class="duration">1 año</div>
-                    <div class="title">
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <div class="tarjeta">
+                    <div class="duracion">1 año</div>
+                    <div class="titulo">
+                        <i class="comillas fa fa-quote-left" aria-hidden="true"></i>
                         Experto Universitario en Estudios y Tratamiento de la Violencia de Género
-                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                        <i class="comillas fa fa-quote-right" aria-hidden="true"></i>
                     </div>
-                    <div class="company">Universidad de Las Palmas de Gran Canaria</div>
+                    <div class="empresa">Universidad de Las Palmas de Gran Canaria</div>
                 </div>
             </div>
         </div>
+        <div class="overlay"></div>
     </section>
+
+    <!-- ───────────────── -->
+    <!--     CURRÍCULO     -->
+    <!-- ───────────────── -->
+
+    <aside id="curriculo">
+        <p class="texto wow fadeIn">Cuando no sepas <span>cómo</span> iniciar, continuar o finalizar un procedimiento judicial, acude a la <span>Ley Procesal</span></p>
+        <div class="overlay ruido"></div>
+    </aside>
 
     <!-- ─────────────── -->
     <!--     HOBBIES     -->

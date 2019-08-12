@@ -70,7 +70,7 @@ p, li {
 
 h3 {
     color: $dorado;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 900;
     font-family: 'Playfair Display', sans-serif;
     text-align: center;
@@ -81,7 +81,7 @@ h3 {
     padding: 0;
     margin: 0;
     position: relative;
-    z-index: 25;
+    z-index: 50;
 
     & + hr {
         width: 50px;
@@ -89,14 +89,21 @@ h3 {
         margin-bottom: 50px;
         background-color: rgba(193,143,089,.35);
         border: none;
+        position: relative;
+        z-index: 50;
     }
 }
 
 // Mobile First
 
 @media only screen and (min-width: $mobile) {
+    
     section {
         padding: 150px 0;
+    }
+
+    h3 {
+        font-size: 50px;
     }
 }
 
@@ -597,7 +604,7 @@ header {
 
 // Mobile First
 
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: $mobile) {
     #bienvenida {
         background: white url(../img/bg/about.png) fixed no-repeat center;
         background-size: cover;
@@ -713,137 +720,240 @@ header {
     }
 }
 
-/* ──────────────── */
-/*     TRAINING     */
-/* ──────────────── */
+/* ───────────────── */
+/*     FORMACIÓN     */
+/* ───────────────── */
 
-/* General */
-
-#training {
+#formacion {
+    background: white url(../img/bg/training.jpg) fixed no-repeat center;
+    background-size: cover;
+    padding-left: 10px;
+    padding-right: 10px;
     position: relative;
-}
 
-#training hr {
-    position: relative;
-    z-index: 25;
-}
+    // Selector de año
 
-#training .overlay {
-    background: rgba(255,255,255,.95);
-    background: linear-gradient(to right, rgba(255,255,255,.85), rgba(255,255,255,.95), rgba(255,255,255,0.85));
-}
+    .selector .barra {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(193,143,89,.75);
+        margin: 75px auto 50px;
+        position: relative;
+        width: 100%;
+        max-width: 950px;
+        height: 1px;
 
-@media only screen and (min-width: $tablet) {
-    #training {
-        background: white url(../img/bg/training.jpg) fixed no-repeat center;
-        background-size: cover;
+        .circulo {
+            content: "";
+            display: inline-block;
+            background: white;
+            border: 1px solid $dorado;
+            border-radius: 50%;
+            position: absolute;
+            top: -6px;
+            width: 12px;
+            height: 12px;
+            opacity: 1;
+            transition: .5s ease-out;
+        }
+
+        .year {
+            display: block;
+            color: $dorado;
+            font-size: 10px;
+            text-align: center;
+            letter-spacing: 1px;
+            position: relative;
+            bottom: 25px;
+            transform: rotateZ(-50deg);
+            width: 30px;
+            transition: color .5s;
+            cursor: pointer;
+
+            &:hover,
+            &.active {
+                color: rgb(193,143,89,.5);
+            }
+        }
+    }
+
+    // Tarjetas
+
+    .carrusel {
+        position: relative;
+        overflow: hidden;
+
+        .year-content {
+            position: absolute;
+            opacity: 0;
+
+            .tarjeta {
+                background: white;
+                border: 1px solid $gris-claro;
+                box-shadow: 0 0 5px $gris-claro;
+                padding: 25px;
+                position: relative;
+                margin: 10px auto;
+                width: 100%;
+                max-width: 750px;
+
+                .titulo {
+                    color: $azul;
+                    font-size: 25px;
+                    font-weight: 900;
+                    font-family: 'Playfair Display', sans-serif;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin: 20px 0 10px;
+                    position: relative;
+                    
+                    .comillas {
+                        color: $azul;
+                        font-size: 25px;
+                        position: relative;
+                        bottom: 5px;
+                        opacity: .1;
+                    }
+                }
+
+                .empresa {
+                    color: rgba(45,50,65,.5);
+                    font-size: 10px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    line-height: 20px;
+                }
+                
+                .duracion {
+                    color: $dorado;
+                    font-size: 10px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    border-bottom: 1px solid rgb(193,143,89,.15);
+                    letter-spacing: 2px;
+                    padding-bottom: 15px;
+                }
+            }
+
+            &:first-child {
+                position: relative;
+                opacity: 1;
+            }
+        }
+    }
+
+    .overlay {
+        background: rgba(255,255,255,.95);
+        background: linear-gradient(to right, rgba(255,255,255,.85), rgba(255,255,255,.95), rgba(255,255,255,0.85));
     }
 }
 
-/* Year selector */
+// Mobile First
 
-#training .year-selector .horizontal-line {
+@media only screen and (min-width: $mobile) {
+    
+    #formacion {
+
+        // Selector de año
+
+        .selector .barra .year {
+            font-size: 12px;
+            width: 55px;
+            transform: none;
+        }
+
+        // Tarjetas
+
+        .carrusel .year-content .tarjeta {
+
+            .titulo {
+                font-size: 35px;
+                margin: 20px 0;
+
+                .comillas { bottom: 10px }
+            }
+
+            .empresa {
+                font-size: 15px;
+                line-height: 30px;
+            }
+
+            .duracion {
+                font-size: 15px;
+                padding-bottom: 25px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet) {
+    
+    #formacion {
+
+        // Selector de año
+
+        .selector .barra {
+            background: linear-gradient(to right, transparent, rgba(193,143,89,.25) 5%, rgba(193,143,89,.75), rgba(193,143,89,.25) 95%, transparent);
+        
+            .year {
+                font-size: 15px;
+                width: 75px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $laptop) {}
+
+@media only screen and (min-width: $desktop) {}
+
+// ───────────────── //
+//     CURRÍCULO     //
+// ───────────────── //
+
+#curriculo {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, transparent, rgb(193,143,89,.25) 5%, rgb(193,143,89,.75), rgb(193,143,89,.25) 95%, transparent);
-    margin: 75px 0 50px;
+    background: white url(../img/bg/curriculo.jpg) fixed center no-repeat;
+    background-size: cover;
+    padding: 100px 15%;
     position: relative;
-    width: 100%;
-    height: 1px;
+
+    .texto {
+        color: white;
+        font-size: 25px;
+        font-weight: 900;
+        font-family: 'Playfair Display', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        line-height: 40px;
+        margin: 0;
+        position: relative;
+        z-index: 50;
+
+        span {
+            color: $dorado;
+        }
+    }
+
+    .overlay { background: rgba(45,50,65,.75) }
 }
 
-#training .year-selector .horizontal-line .indicator {
-    content: "";
-    display: inline-block;
-    background: white;
-    border: 1px solid $dorado;
-    border-radius: 50%;
-    position: absolute;
-    left: 225px;
-    top: -6px;
-    width: 12px;
-    height: 12px;
-    opacity: 1;
-}
+// Mobile First
 
-#training .year-selector .horizontal-line .year {
-    display: block;
-    color: $dorado;
-    font-size: 15px;
-    letter-spacing: 1px;
-    margin: 0 15px;
-    position: relative;
-    bottom: 25px;
-    cursor: pointer;
-    transition: .5s;
-}
+@media only screen and (min-width: $tablet) {
+    #curriculo {
+        padding: 175px 15%;
 
-#training .year-selector .horizontal-line .year:hover,
-#training .year-selector .horizontal-line .year.active {
-    color: rgb(193,143,89,.5);
-}
-
-/* Training items related to the selected year */
-
-#training .carrusel {
-    position: relative;
-    overflow: hidden;
-}
-
-#training .year-content {
-    position: absolute;
-    opacity: 0;
-}
-
-#training .carrusel .year-content:first-child {
-    position: relative;
-    opacity: 1;
-}
-
-#training .year-content .year-content-wrapper {
-    background: white;
-    border: 1px solid $gris-claro;
-    box-shadow: 0 0 5px $gris-claro;
-    padding: 25px;
-    position: relative;
-    margin: 10px auto;
-    width: 750px;
-}
-
-#training .year-content .year-content-wrapper .title {
-    color: $azul;
-    font-size: 35px;
-    font-weight: 900;
-    font-family: 'Playfair Display', sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 20px 0;
-}
-
-#training .year-content .year-content-wrapper .title i {
-    color: $azul;
-    font-size: 25px;
-    position: relative;
-    bottom: 10px;
-    opacity: .1;
-}
-
-#training .year-content .year-content-wrapper .company {
-    color: rgba(45,50,65,.5);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-#training .year-content .year-content-wrapper .duration {
-    color: $dorado;
-    font-size: 15px;
-    text-align: center;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgb(193,143,89,.15);
-    letter-spacing: 2px;
-    padding-bottom: 25px;
+        .texto {
+            font-size: 45px;
+            text-align: center;
+            line-height: 65px;
+        }
+    }
 }
 
 // ─────────────────── //

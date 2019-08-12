@@ -95,15 +95,11 @@ $(document).ready(function() {
     function highlightNavbar() {
         
         // Header
-        if ($(this).scrollTop() < $("#bienvenida").position().top) {
+        if ($(this).scrollTop() < $("#bienvenida").position().top)
             $("nav .item").css("color", "white");
-            $("nav .item").css("color", "white");
-        }
 
         // Bienvenida
         if ($(this).scrollTop() >= $("#bienvenida").position().top) {
-            $("nav .item").css("color", "white");
-            $("nav .item:nth-child(1)").css("color", "#C18F59");
             $("nav .item").css("color", "white");
             $("nav .item:nth-child(1)").css("color", "#C18F59");
         }
@@ -112,14 +108,10 @@ $(document).ready(function() {
         if ($(this).scrollTop() >= $("#experiencia").position().top) {
             $("nav .item").css("color", "white");
             $("nav .item:nth-child(2)").css("color", "#C18F59");
-            $("nav .item").css("color", "white");
-            $("nav .item:nth-child(2)").css("color", "#C18F59");
         }
 
         // Formación
         if ($(this).scrollTop() >= $("#formacion").position().top) {
-            $("nav .item").css("color", "white");
-            $("nav .item:nth-child(3)").css("color", "#C18F59");
             $("nav .item").css("color", "white");
             $("nav .item:nth-child(3)").css("color", "#C18F59");
         }
@@ -128,63 +120,79 @@ $(document).ready(function() {
         if ($(this).scrollTop() >= $("#contacto").position().top) {
             $("nav .item").css("color", "white");
             $("nav .item:nth-child(4)").css("color", "#C18F59");
-            $("nav .item").css("color", "white");
-            $("nav .item:nth-child(4)").css("color", "#C18F59");
         }
     }
 
-    // ──────────────── //
-    //     TRAINING     //
-    // ──────────────── //
+    // ───────────────── //
+    //     FORMACIÓN     //
+    // ───────────────── //
+    
+    moverCirculo();
+
+    $(window).on('resize', function(){
+        moverCirculo();
+    });
+
+    function moverCirculo() {
+
+        var posicion     = $("#formacion .year.active").position().left;
+        var anchoYear    = $("#formacion .year.active").width();
+        var anchoCirculo = $("#formacion .circulo").width();
+
+        anchoCirculo = (anchoCirculo / 2) + 1;
+
+        var coordenadas = (posicion + (anchoYear / 2)) - anchoCirculo;
+        
+        $("#formacion .circulo").animate({
+            left: coordenadas
+        }, { duration: 500, queue: false });
+    }
 
     // Timeline
-    $(document).on("click", "#training .year", function () {
+    $(document).on("click", "#formacion .year", function () {
         
         // We check if another timeline animation is executing previously just to prevent it to stop
-        if ($("#training .indicator").is(":animated") || $("#training .year-content").is(":animated"))
+        if ($("#formacion .circulo").is(":animated") || $("#formacion .year-content").is(":animated"))
             return;
 
         var targetYear  = $(this).attr("data-year");
-        var currentYear = $("#training .year.active").attr("data-year");
+        var currentYear = $("#formacion .year.active").attr("data-year");
 
         // We do nothing if the user selects the same year
         if ( currentYear == targetYear )
             return;
 
         // Selected year updated
-        $("#training .year.active").removeClass("active");
+        $("#formacion .year.active").removeClass("active");
         $(this).addClass("active");
 
-        // We move the indicator below the selected year
-        var position = $(this).position();
-        $("#training .indicator").animate({
-            left: position.left + 28
-        }, { duration: 500, queue: false });
+        // We move the circle below the selected year
+        moverCirculo();
 
         // We hide the previous year content just to show the one belonging to the selected year
         if ( currentYear < targetYear ) {
-            $("#training .year-content.active").animate(
+            $("#formacion .year-content.active").animate(
                 { opacity: "0", left: "-100px" },
                 { duration: 500, queue: false, done: function () {
-                    $("#training .year-content.active").css({"position" : "absolute", "left" : ""}).removeClass("active");
-                    $("#training .year-content[data-content='" + targetYear + "']").css({"position" : "relative", "right" : "-100px"}).animate(
+                    $("#formacion .year-content.active").css({"position" : "absolute", "left" : ""}).removeClass("active");
+                    $("#formacion .year-content[data-content='" + targetYear + "']").css({"position" : "relative", "right" : "-100px"}).animate(
                         { opacity: "1", right: "0" },
                         { duration: 500, done: function () {
-                            $("#training .year-content[data-content='" + targetYear + "']").css({"right" : ""}).addClass("active")
+                            $("#formacion .year-content[data-content='" + targetYear + "']").css({"right" : ""}).addClass("active")
                         }
                     });
                 }
             });
         }
         else {
-            $("#training .year-content.active").animate(
+            $("#formacion .year-content.active").animate(
                 { opacity: "0", right: "-100px" },
                 { duration: 500, queue: false, done: function () {
-                    $("#training .year-content.active").css({"position" : "absolute", "right" : ""}).removeClass("active");
-                    $("#training .year-content[data-content='" + targetYear + "']").css({"position" : "relative", "left" : "-100px"}).animate(
+                    $("#formacion .year-content.active").css({"position" : "absolute", "right" : ""}).removeClass("active");
+                    $("#formacion .year-content[data-content='" + targetYear + "']").css({"position" : "relative", "left" : "-100px"}).animate(
                         { opacity: "1", left: "0" },
                         { duration: 500, done: function () {
-                            $("#training .year-content[data-content='" + targetYear + "']").css({"left" : ""}).addClass("active")
+                            $("#formacion .year-content[data-content='" + targetYear + "']").css({"left" : ""}).addClass("active")
                         }
                     });
                 }
