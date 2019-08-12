@@ -38,10 +38,10 @@ $(document).ready(function() {
 
     // Top button revealing
     function showTopButton () {
-        if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150)
-            $(".top-button").css("opacity", "1");
+        if ($(this).scrollTop() >= $("#bienvenida").position().top)
+            $(".top-button").css("right", "25px");
         else
-            $(".top-button").css("opacity", "0");
+            $(".top-button").css("right", "-75px");
     }
 
     // ──────────────── //
@@ -71,14 +71,24 @@ $(document).ready(function() {
 
     // Function in charge of resizing the navigation bar according to the scroll position
     function resizeNavbar() {
-        if ($( document ).width() > 768) {
-            if ($(this).scrollTop() > 250)
-                $("nav").css({"padding" : "15px 0", "background-color" : "#2D3241"});
-            else
-                $("nav").css({"padding" : "40px 0", "background-color" : "rgba(45,50,65,.75)"});
+        if ($( document ).width() >= 768) {
+            if ($(this).scrollTop() > 250) {
+                $("nav").css("background", "#2D3241");
+                $("nav .item").css("padding", "25px 40px");
+            }
+            else {
+                $("nav").css("background", "rgba(45,50,65,.75)");
+                $("nav .item").css("padding", "40px");
+            }
         }
-        else
-            $("nav").css("padding", "20px 0");
+        else {
+            if ($(this).scrollTop() >= $("#bienvenida").position().top) {
+                $("nav").css("bottom", "0");
+            }
+            else {
+                $("nav").css("bottom", "-75px");
+            }
+        }
     }
 
     // Function in charge of highlighting the current navigation bar item
@@ -86,40 +96,40 @@ $(document).ready(function() {
         
         // Header
         if ($(this).scrollTop() < $("#bienvenida").position().top) {
-            $("nav .item i").css("color", "white");
-            $("nav .item a").css("color", "white");
+            $("nav .item").css("color", "white");
+            $("nav .item").css("color", "white");
         }
 
         // Bienvenida
         if ($(this).scrollTop() >= $("#bienvenida").position().top) {
-            $("nav .item i").css("color", "white");
-            $("nav .item:nth-child(1) i").css("color", "#C18F59");
-            $("nav .item a").css("color", "white");
-            $("nav .item:nth-child(1) a").css("color", "#C18F59");
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(1)").css("color", "#C18F59");
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(1)").css("color", "#C18F59");
         }
 
         // Experiencia
         if ($(this).scrollTop() >= $("#experiencia").position().top) {
-            $("nav .item i").css("color", "white");
-            $("nav .item:nth-child(2) i").css("color", "#C18F59");
-            $("nav .item a").css("color", "white");
-            $("nav .item:nth-child(2) a").css("color", "#C18F59");
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(2)").css("color", "#C18F59");
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(2)").css("color", "#C18F59");
         }
 
-        // Training
-        if ($(this).scrollTop() >= $("#training").position().top) {
-            $("nav .item i").css("color", "white");
-            $("nav .item:nth-child(3) i").css("color", "#C18F59");
-            $("nav .item a").css("color", "white");
-            $("nav .item:nth-child(3) a").css("color", "#C18F59");
+        // Formación
+        if ($(this).scrollTop() >= $("#formacion").position().top) {
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(3)").css("color", "#C18F59");
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(3)").css("color", "#C18F59");
         }
 
-        // Contact
+        // Contacto
         if ($(this).scrollTop() >= $("#contacto").position().top) {
-            $("nav .item i").css("color", "white");
-            $("nav .item:nth-child(4) i").css("color", "#C18F59");
-            $("nav .item a").css("color", "white");
-            $("nav .item:nth-child(4) a").css("color", "#C18F59");
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(4)").css("color", "#C18F59");
+            $("nav .item").css("color", "white");
+            $("nav .item:nth-child(4)").css("color", "#C18F59");
         }
     }
 
