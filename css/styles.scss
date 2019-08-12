@@ -917,6 +917,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     background: white url(../img/bg/curriculo.jpg) fixed center no-repeat;
     background-size: cover;
     padding: 100px 15%;
@@ -927,6 +928,7 @@ header {
         font-size: 25px;
         font-weight: 900;
         font-family: 'Playfair Display', sans-serif;
+        text-align: center;
         text-transform: uppercase;
         letter-spacing: 3px;
         line-height: 40px;
@@ -936,6 +938,35 @@ header {
 
         span {
             color: $dorado;
+        }
+    }
+
+    .boton {
+        color: white;
+        font-size: 12px;
+        font-weight: 400;
+        text-decoration: none;
+        text-transform: uppercase;
+        background: $dorado;
+        border: 1.5px solid $dorado;
+        border-radius: 2.5px;
+        outline: none;
+        letter-spacing: 3px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 50px 0 0;
+        padding: 25px 0;
+        position: relative;
+        z-index: 50;
+        width: 100%;
+        max-width: 300px;
+        transition: .5s;
+        cursor: pointer;
+    
+        &:hover {
+            background: $azul;
+            border: 1.5px solid $azul;
         }
     }
 
@@ -950,8 +981,11 @@ header {
 
         .texto {
             font-size: 45px;
-            text-align: center;
             line-height: 65px;
+        }
+
+        .boton {
+            font-size: 15px;
         }
     }
 }
@@ -1540,8 +1574,8 @@ footer {
     }
 
     &:hover {
-        color: $dorado !important;
-        background: white;
+        background: $azul;
+        border-color: $azul;
     }
     
     &:active {
