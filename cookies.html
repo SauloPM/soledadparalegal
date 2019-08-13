@@ -3,16 +3,17 @@
 
 <head>
 
-    <!-- Page Title -->
-    <title>Soledad Poveda Paralegal</title>
+    <meta charset="utf-8">
+    <meta name="viewport"    content="width=device-width, initial-scale=1">
+    <meta name="author"      content="Saulo Poveda Montesdeoca">
+    <meta name="description" content="Soledad Poveda Montesdeoca - Asistencia Legal en Las Palmas de Gran Canaria">
+    <meta name="keywords"    content="Asistencia, Asistente, Legal, Asistencia Legal, Asistente Legal, Paralegal, Derecho, Abogacía, Las Palmas, Las Palmas de Gran Canaria">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="img/favicon.ico">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Saulo Poveda Montesdeoca">
-    <meta name="description" content="Página web oficial de Soledad Poveda Paralegal">
+    <!-- Web Title -->
+    <title>Soledad Poveda - Asistencia Legal en Las Palmas</title>
 
     <!-- ─────────── -->
     <!--     CSS     -->
@@ -28,17 +29,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
     <!-- Local -->
-    <link rel="stylesheet" href="css/preloader.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- ───────────── -->
     <!--     FONTS     -->
     <!-- ───────────── -->
 
-    <!-- Lato -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
-    <!-- Playfair Display -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
     <!-- Font Awesome CDN -->
@@ -46,31 +44,31 @@
 
 </head>
 
-<body id="top">
+<body id="top" style="overflow: visible">
+
+    <!-- Top Button -->
+    <a class="top-button smooth-scrolling" href="#top" title="Volver arriba" style="right: 25px">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </a>
 
     <!-- Preloader -->
     <div id="preloader">
-        <img class="spinner" src="img/preloader.png" alt="Preloader">
+        <img class="spinner" src="img/preloader.svg" alt="Preloader">
     </div>
-
-    <!-- Top Button -->
-    <a class="top-button page-scroll" href="#top" title="Volver arriba">
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-    </a>
 
     <!-- ─────────────────── -->
     <!--     INFORMATION     -->
     <!-- ─────────────────── -->
 
-    <section id="legal" class="wow fadeIn">
-        <h2>Política de cookies</h2>
-        <hr>
-        <div class="container">
-            <h3>Definición de cookie</h3>
+    <section id="legal">
+        <div class="container wow fadeIn">
+            <h3>Política de cookies</h3>
+            <hr>
+            <h4>Definición de cookie</h4>
             <p>
                 Una cookie es un pequeño fichero de texto que se almacena en su navegador web cuando visita una página web. De esta forma, la página es capaz de recordar su visita para cuando vuelva a navegar por esta página. Las cookies suelen almacenar información de carácter técnico, preferencias personales, personalización de contenidos, estadísticas de uso, enlaces a redes sociales, acceso a cuentas de usuario, etc. El objetivo de la cookie es adaptar el contenido de un sitio web a su perfil. Las cookies desempeñan un papel muy importante en la mejora de la experiencia del usuario.
             </p>
-            <h3>Tipos de cookies</h3>
+            <h4>Tipos de cookies</h4>
             <p>
                 Utilizamos cookies propias y de terceros:
             </p>
@@ -82,7 +80,7 @@
                     <u>Las cookies de terceros</u> son aquellas que se envían al equipo terminal del usuario desde un equipo o dominio que no es gestionado por el editor, sino por otra entidad que trata los datos obtenidos través de las cookies.
                 </li>
             </ul>
-            <h3>Desactivación de cookies</h3>
+            <h4>Desactivación de cookies</h4>
             <p>
                 Es posible habilitar, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador web instalado en su dispositivo. Ha de saber que para la utilización de esta página web no es necesaria la instalación de cookies. Veamos una lista de enlaces informativos acerca de la gestión de cookies para los navegadores web más utilizados:
             </p>
@@ -103,8 +101,8 @@
                     Navegador web <a title="Gestión de cookies para Opera" href="https://help.opera.com/en/latest/web-preferences/#cookies" target="_blank" rel="noopener">Opera</a>
                 </li>
             </ul>
-            <h3>Cookies utilizadas</h3>
-            <p>
+            <h4>Cookies utilizadas</h4>
+            <p class="marginless">
                 Veamos las cookies utilizadas en esta página web:
             </p>
         </div>
@@ -114,24 +112,10 @@
     <!--     FOOTER     -->
     <!-- ────────────── -->
 
-    <footer>
-        <div class="rrss">
-            <a class="rrss facebook" href="#" title="Perfil oficial de Facebook">
-                <i class="fa fa-fw fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a class="rrss twitter" href="https://twitter.com/canparalegal" title="Perfil oficial de Twitter">
-                <i class="fa fa-fw fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a class="rrss linkedin" href="#" title="Perfil oficial de LinkedIn">
-                <i class="fa fa-fw fa-linkedin" aria-hidden="true"></i>
-            </a>
-        </div>
-        <div class="legal">
-            <a href="legal.html">Política de privacidad</a>
-            <a href="cookies.html">Política de cookies</a>
-        </div>
+    <footer style="border: none">
         <div class="copyright">
-            <p>&copy; Soledad Poveda <span>Paralegal</span></p>
+            &copy; Soledad Poveda <span>Paralegal</span>
+            <div class="overlay"></div>
         </div>
     </footer>
 
@@ -145,14 +129,14 @@
     <!-- Bootstrap JS CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- WOW -->
-    <script src="js/animations/wow.min.js"></script>
+    <!-- jQuery Easing CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
-    <!-- Scrolling navbar -->
-    <script src="js/scrolling/jquery.easing.min.js"></script>
-    <script src="js/scrolling/scrolling-nav.js"></script>
+    <!-- WOW -->
+    <script src="js/wow.min.js"></script>
 
     <!-- Local -->
     <script src="js/functions.js"></script>
+
 </body>
 </html>
