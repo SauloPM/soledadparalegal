@@ -38,10 +38,22 @@ $(document).ready(function() {
 
     // Top button revealing
     function showTopButton () {
-        if ($(this).scrollTop() >= $("#bienvenida").position().top)
-            $(".top-button").css("right", "25px");
-        else
-            $(".top-button").css("right", "-75px");
+
+        // Legal        
+        if ($('body').hasClass('legal')) {
+            if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150)
+                $(".top-button").css("right", "25px");
+            else
+                $(".top-button").css("right", "-75px");
+        }
+
+        // Página de inicio
+        else {
+            if ($(this).scrollTop() >= $("#bienvenida").position().top)
+                $(".top-button").css("right", "25px");
+            else
+                $(".top-button").css("right", "-75px");
+        }
     }
 
     // ──────────────── //

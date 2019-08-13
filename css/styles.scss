@@ -1464,14 +1464,21 @@ footer {
 //     LEGAL     //
 // ───────────── //
 
-#legal p { margin-bottom: 25px }
+.legal {
 
-#legal a {
-    color: $dorado;
-    text-decoration: none;
-    transition: .5s;
+    p { margin-bottom: 25px }
 
-    &:hover { opacity: .75 }
+    a {
+        color: $dorado;
+        text-decoration: none;
+        transition: .5s;
+    
+        &:hover { opacity: .75 }
+    }
+
+    .top-button {
+        bottom: 25px !important;
+    }
 }
 
 // ────────────────── //
