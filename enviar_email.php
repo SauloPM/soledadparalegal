@@ -1,7 +1,7 @@
 <?php
 
 // Almacenamos los datos del formulario en variables
-$to      = "spovedam@gmail.com";
+$to      = "info@saulopm.com";
 $from    = $_POST['email'  ];
 $name    = $_POST['nombre' ];
 $subject = $_POST['asunto' ];
