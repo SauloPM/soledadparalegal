@@ -66,7 +66,8 @@ $(window).on("load", function() {
 
     // Function in charge of header's background image slowdown on scroll (a half of its normal speed)
     function parallax() {
-        $("header").css("background-position", "center " + ($(document).scrollTop() * .5) + "px");
+        if ($( document ).width() >= 768)
+            $("header").css("background-position", "center " + ($(document).scrollTop() * .5) + "px");
     }
 
     // ────────────── //
